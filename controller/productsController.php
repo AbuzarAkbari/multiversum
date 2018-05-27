@@ -39,34 +39,34 @@ class productsController {
         } catch (Exception $e){
             throw $e;
         }
-    }    
-    
+    }
+
     public function addActionButtons($array){
         foreach ($array as $key => $value) {
             $array[$key]["Action"] =
-                "<a class='btn btn-success' href='index.php?op=read&id=$value[product_id]'><i class='fa fa-book' aria-hidden='true'></i>Read</a>
-                <a class='btn btn-info' href='index.php?op=update&id=$value[product_id]'><i class='fa fa-pencil' aria-hidden='true'></i>Update</a>
-                <a class='btn btn-danger' href='index.php?op=delete&id=$value[product_id]'><i class='fa fa-times' aria-hidden='true'></i>Delete</a>";
+                "<a class='btn btn-success' href='index.php?op=read&id=$value[products_id]'><i class='fa fa-book' aria-hidden='true'></i>Read</a>
+                <a class='btn btn-info' href='index.php?op=update&id=$value[products_id]'><i class='fa fa-pencil' aria-hidden='true'></i>Update</a>
+                <a class='btn btn-danger' href='index.php?op=delete&id=$value[products_id]'><i class='fa fa-times' aria-hidden='true'></i>Delete</a>";
         }
         return $array;
     }
 
     public function addCheckBoxes($array){
         foreach ($array as $key => $value) {
-            $array[$key]["<input type='checkbox' name='' value='index.php?op=read&id=$value[product_id]'>"] =
-                "<input type='checkbox' name='' value='index.php?op=read&id=$value[product_id]'>";
+            $array[$key]["<input type='checkbox' name='' value='index.php?op=read&id=$value[products_id]'>"] =
+                "<input type='checkbox' name='' value='index.php?op=read&id=$value[products_id]'>";
         }
-  
+
         return $array;
     }
 
     public function Replace($array){
         foreach ($array as $key => $value) {
-            $array[$key]["product_price"] = "€ " . str_replace("." , "," , $value['product_price']);
+            $array[$key]["prijs"] = "€ " . str_replace("." , "," , $value['prijs']);
         }
         return $array;
     }
-    
+
     public function createTable($array){
         $table = "";
 
@@ -94,15 +94,15 @@ class productsController {
 
         $perPage = isset($_GET["per-page"]) && $_GET["per-page"] <=5 ? (int)$_GET["per-page"] : 5;
 
-        $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;  
-        
+        $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
+
         switch (isset($_GET['op'])) {
             case 'search':
                 $total = $this->productslogic->searchTotal($_GET['q']);
                 $product = $this->productslogic->searchProducts($_GET['q'],$start,$perPage);
             break;
             case 'delete':
-            default:    
+            default:
                 $total = $this->productslogic->total();
                 $product = $this->productslogic->readProducts($perPage,$start);
             break;
@@ -110,20 +110,20 @@ class productsController {
 
         $pages = ceil($total / $perPage);
 
-        $product = $this->Replace($product);  
-        
+        $product = $this->Replace($product);
+
         $buttons = $this->addActionButtons($product);
-            
+
         $checkboxes = $this->addCheckBoxes($buttons);
 
-        $table = $this->createTable($checkboxes); 
-        
+        $table = $this->createTable($checkboxes);
+
         include 'view/products.php';
-    }    
+    }
 
     public function collectCreateProduct(){
-        
-        if(isset($_POST["send"])) {    
+
+        if(isset($_POST["send"])) {
             $id = $this->productslogic->createProduct($_POST["product_type_code"],$_POST["supplier_id"],$_POST["product_name"],$_POST["product_price"],$_POST["other_product_details"] );
             header("Location: /stardunks/index.php?op=read&id=$id");
         }else{
@@ -131,7 +131,7 @@ class productsController {
             include ("view/form.php");
         }
     }
-    
+
     public function collectReadProduct(){
         $product = $this->productslogic->readProduct($_GET["id"]);
         $product = $this->Replace($product);
@@ -142,11 +142,11 @@ class productsController {
     }
 
     public function collectReadProducts(){
-            $this->pagination();            
+            $this->pagination();
     }
 
     public function collectUpdateProduct(){
-        if(isset($_POST["send"])) {            
+        if(isset($_POST["send"])) {
             $this->productslogic->updateProduct($_POST["product_type_code"],$_POST["supplier_id"],$_POST["product_name"],$_POST["product_price"],$_POST["other_product_details"],$_GET["id"]);
             $this->collectReadProduct();
         }else{
@@ -154,8 +154,8 @@ class productsController {
             $form = $this->HtmlElements->createForm($this->productslogic->DescribeProducts(),$dataForm);
             include ("view/form.php");
         }
-        
-        
+
+
     }
     public function collectDeleteProduct(){
         $product = $this->productslogic->deleteProduct($_GET["id"]);
@@ -165,7 +165,7 @@ class productsController {
     public function collectSearchProducts(){
         $this->Pagination();
     }
-    
+
 
 }
 
