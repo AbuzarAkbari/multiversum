@@ -1,4 +1,4 @@
-<?php 
+<?php
     class DataHandler {
 
 
@@ -11,6 +11,7 @@
             catch(PDOException $e)
                 {
                  $e->getMessage();
+
                 }
         }
 
@@ -20,32 +21,32 @@
             $stmt->execute();
 
             return $this->conn->lastInsertId();
-        
+
             // set the resulting array to associative
-        
-            
+
+
             }
 
         function ReadData($sql){
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-        
+
             // set the resulting array to associative
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
             return $result;
         }
         function UpdateData($sql){
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-        
+
         }
         function DeleteData($sql){
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-        
+
             // set the resulting array to associative
-        
+
         }
 
 
