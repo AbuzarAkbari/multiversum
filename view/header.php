@@ -4,13 +4,13 @@
 	<div class="agileits_header">
 		<div class="container">
 			<div class="w3l_offers">
-				<p><a href="products.html">KOOP NU!</a></p>
+				<p><a href="products.php">KOOP NU!</a></p>
 			</div>
 			<div class="agile-login">
 				<ul>
-					<li><a href="registered.html"> Create Account </a></li>
-					<li><a href="login.html">Login</a></li>
-					<li><a href="contact.html">Help</a></li>
+					<li><a href="registered.php"> Create Account </a></li>
+					<li><a href="login.php">Login</a></li>
+					<li><a href="contact.php">Help</a></li>
 
 				</ul>
 			</div>
@@ -34,7 +34,7 @@
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">
-				<h1><a href="index.html">multiversum</a></h1>
+				<h1><a href="index.php">multiversum</a></h1>
 			</div>
 		<div class="w3l_search">
 			<form action="#" method="post">
@@ -65,10 +65,10 @@
 							</div>
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="index.html" class="act">Home</a></li>
-									<li><a href="leeg.html">leeg</a></li>
-									<li><a href="leeg.html">leeg</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li class="active"><a href="index.php" class="act">Home</a></li>
+									<li><a href="leeg.php">leeg</a></li>
+									<li><a href="leeg.php">leeg</a></li>
+									<li><a href="contact.php">Contact</a></li>
 								</ul>
 							</div>
 							</nav>
