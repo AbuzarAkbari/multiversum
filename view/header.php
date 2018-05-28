@@ -1,78 +1,51 @@
-<!-- header -->
-<link rel="stylesheet" href="view/assets/style.css">
+<!DOCTYPE html>
+<html lang="en">
 
-	<div class="agileits_header">
-		<div class="container">
-			<div class="w3l_offers">
-				<p><a href="products.php">KOOP NU!</a></p>
-			</div>
-			<div class="agile-login">
-				<ul>
-					<li><a href="registered.php"> Create Account </a></li>
-					<li><a href="login.php">Login</a></li>
-					<li><a href="contact.php">Help</a></li>
+  <head>
 
-				</ul>
-			</div>
-			<div class="product_list_header">
-					<form action="#" method="post" class="last">
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="display" value="1">
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-					</form>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<div class="logo_products">
-		<div class="container">
-		<div class="w3ls_logo_products_left1">
-				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>Order online or call us : (+123) 123 132</li>
 
-				</ul>
-			</div>
-			<div class="w3ls_logo_products_left">
-				<h1><a href="index.php">multiversum</a></h1>
-			</div>
-		<div class="w3l_search">
-			<form action="#" method="post">
-				<input type="search" name="Search" placeholder="Search for a Product..." required="">
-				<button type="submit" class="btn btn-default search" aria-label="Left Align">
-					<i class="fa fa-search" aria-hidden="true"> </i>
-				</button>
-				<div class="clearfix"></div>
-			</form>
-		</div>
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="view/assets/style.css" rel="stylesheet">
+  </head>
 
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-<!-- //header -->
-<!-- navigation -->
-	<div class="navigation-agileits">
-		<div class="container">
-			<nav class="navbar navbar-default">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header nav_2">
-								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div>
-							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-								<ul class="nav navbar-nav">
-									<li class="active"><a href="index.php" class="act">Home</a></li>
-									<li><a href="leeg.php">leeg</a></li>
-									<li><a href="leeg.php">leeg</a></li>
-									<li><a href="contact.php">Contact</a></li>
-								</ul>
-							</div>
-							</nav>
-			</div>
-		</div>
-
-<!-- //navigation -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top madison">
+        <a class="navbar-brand" href="#">
+          <img width="90" src="view/assets/images/vr.svg" alt="logo">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" onClick="document.getElementById('content').innerHTML = loadPage('view/home.php');">Home</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="document.getElementById('content').innerHTML = loadPage('view/products.php');">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onClick="document.getElementById('content').innerHTML = loadPage('contact.php');">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Winkelwagen</a>
+            </li>
+        </ul>
+      <form class="form-inline">  
+        <div class="input-group mt-2">
+          <input type="text" class="form-control ">
+          <div class="input-group-append">
+            <button class="btn " type="button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      <button type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></button>        
+      </form>
+    </div>
+</nav>

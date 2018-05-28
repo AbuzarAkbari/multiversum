@@ -11,10 +11,10 @@ class productslogic {
 
     }
 
-    public function createProduct($prijs,$platform,$display,$resolutie,$refresh_rate,$gezichtsveld,$functies,$kleur,$accessoires,$product_name) {
-        return $this->DataHandler->CreateData("INSERT INTO products(`prijs`,`platform`,`display`,`resolutie`,`refresh_rate`,'gezichtsveld','functies','kleur','accessoires','product_name')
-        VALUES ('$prijs','$platform','$display','$resolutie','$refresh_rate','$gezichtsveld','$functies','$kleur','$accessoires','$product_name')");
-
+    public function createProduct($type_code,$supplier,$name,$price,$details) {
+        return $this->DataHandler->CreateData("INSERT INTO products(`product_price`, `platform`, `display`, `resolution`, `refresh_rate`, `view`, `functies`, `color`, `accessories`, `image` , `product_name`)
+        VALUES ('$type_code','$supplier','$name','$price','$details')");
+        
     }
 
     public function readProduct($id) {
@@ -22,31 +22,31 @@ class productslogic {
     }
 
     public function readproducts($perPage,$start) {
-        return $this->DataHandler->ReadData("SELECT  * FROM products LIMIT $start,$perPage");
+        return $this->DataHandler->ReadData("SELECT  * FROM products LIMIT $start,$perPage");            
     }
-
+    
     public function total() {
         return $this->DataHandler->ReadData("SELECT COUNT(product_id) FROM products")[0]["COUNT(product_id)"];
     }
-
+    
     public function searchTotal($value) {
         return $this->DataHandler->ReadData("SELECT COUNT(product_id) FROM products WHERE product_name LIKE '%$value%'")[0]["COUNT(product_id)"];
     }
 
     public function searchProducts($value,$start,$perPage) {
-        return $this->DataHandler->ReadData("SELECT * FROM products WHERE product_name LIKE '%$value%' LIMIT $start,$perPage");
+        return $this->DataHandler->ReadData("SELECT * FROM products WHERE product_name LIKE '%$value%' LIMIT $start,$perPage");            
     }
 
     public function updateProduct($type_code,$supplier,$name,$price,$details,$id) {
-        return $this->DataHandler->UpdateData("UPDATE products SET `product_type_code`='$type_code', `supplier_id`='$supplier',`product_name`='$name',`prijs`='$price',`other_product_details`='$details' WHERE `product_id`=$id");
+        return $this->DataHandler->UpdateData("UPDATE products SET `product_type_code`='$type_code', `supplier_id`='$supplier',`product_name`='$name',`product_price`='$price',`other_product_details`='$details' WHERE `product_id`=$id");                    
     }
 
     public function deleteProduct($id) {
-        return $this->DataHandler->DeleteData("DELETE FROM products WHERE product_id=$id");
+        return $this->DataHandler->DeleteData("DELETE FROM products WHERE product_id=$id");            
     }
 
     public function DescribeProducts() {
-        return $this->DataHandler->ReadData("DESCRIBE stardunks.products");
+        return $this->DataHandler->ReadData("DESCRIBE stardunks.products");            
     }
 
     public function createForm($dataForm = false) {
@@ -86,7 +86,7 @@ class productslogic {
         $form .= "</form>";
 
         return $form;
-
+        
     }
 
 }
