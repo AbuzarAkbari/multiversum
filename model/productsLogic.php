@@ -145,10 +145,10 @@ class productsLogic
         foreach ($array as $key => $value) {
             $table .= "<div class='col-lg-4 col-md-6 mb-4'>
             <div class='card'>
-              <a href='#'><img class='card-img-top' src='$value[$image]' alt=></a>
+              <a href='index.php?op=read&id='><img class='card-img-top' src='$value[$image]' alt=></a>
               <div class=''>
                 <h4 class='card-title'>
-                  <a href='#'>$value[$columnTitle]</a>
+                  <a href='index.php?op=read&id='>$value[$columnTitle]</a>
                 </h4>";
                 foreach ($value as $key => $v) {
                     $table .= "<li class='list-group-item'> <b>" . $key . "</b>" . $v . "</li>";
@@ -162,6 +162,8 @@ class productsLogic
               </div>
            </div>";
         }
+
+        // Dit moet na index.php?op=read&id= $value[product_id]'
 
 
         
