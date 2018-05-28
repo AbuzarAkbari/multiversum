@@ -57,8 +57,8 @@
                     </p>
                     <hr>
                     <p>
-                    Kleur Zwart<
-                    /p>
+                    Kleur Zwart
+                    </p>
                     <hr>
                     <p>
                         Bijzonderheden De Vive Consumer Edition wordt geleverd met de headset, twee draadloze
