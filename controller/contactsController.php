@@ -125,9 +125,9 @@ class ContactsController
     {
         foreach ($array as $key => $value) {
             $array[$key]["Action"] =
-                "<div class=\"btn btn-primary mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=read&id=$value[product_id]');\"><i class='fas fa-book'></i> read</div>
-                 <div class=\"btn btn-success mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=update&id=$value[product_id]');\"><i class='fas fa-edit'></i> Update</div>
-                 <a class='btn btn-danger' href='index.php?op=delete&id=$value[product_id]'><i class='fas fa-trash-alt'></i> Delete</a>";
+                "<div class=\"btn btn-primary mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=read&id=');\"><i class='fas fa-book'></i> read</div>
+                 <div class=\"btn btn-success mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=update&id=');\"><i class='fas fa-edit'></i> Update</div>
+                 <a class='btn btn-danger' href='index.php?op=delete&id='><i class='fas fa-trash-alt'></i> Delete</a>";
         }
         return $array;
     }
