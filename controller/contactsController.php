@@ -122,7 +122,7 @@ class ContactsController
         include "view/products.php";
     }
     public function collectContact(){
-        
+        include "view/contact.php";
     }
 
 //<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]' ><i class='fas fa-book'></i> Read</a>
