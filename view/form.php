@@ -1,9 +1,3 @@
-<div class="container">
 <?php
-echo $form;
+    echo $form;
 ?>
-</div>
-
-
-
-

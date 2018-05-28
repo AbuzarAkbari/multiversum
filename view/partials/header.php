@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="view/assets/style.css" rel="stylesheet">
+    <link href="view/assets/css/style.css" rel="stylesheet">
   </head>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top madison">
         <a class="navbar-brand" href="#">
-          <img width="90" src="view/assets/images/vr.svg" alt="logo">
+          <img width="90" src="view/assets/img/logo.svg" alt="logo">
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,26 +26,26 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" onClick="document.getElementById('content').innerHTML = loadPage('view/home.php');">Home</span></a>
+                <a class="nav-link" href="">Home</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="document.getElementById('content').innerHTML = loadPage('view/products.php');">Shop</a>
+                <a class="nav-link" href="index.php?op=allProducts">Shop</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" onClick="document.getElementById('content').innerHTML = loadPage('contact.php');">Contact</a>
+                <a class="nav-link" href"">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled">Winkelwagen</a>
             </li>
         </ul>
-      <form class="form-inline">
+      <form class="form-inline">  
         <div class="input-group mt-2">
           <input type="text" class="form-control ">
           <div class="input-group-append">
             <button class="btn " type="button"><i class="fas fa-search"></i></button>
           </div>
         </div>
-      <button type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></button>
+      <button type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></button>        
       </form>
     </div>
 </nav>

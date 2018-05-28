@@ -2,7 +2,7 @@
     <!-- Footer -->
     <footer class="py-5 madison">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Multiversum &copy; Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem modi quia quo inventore repellat voluptates iste distinctio saepe maxime sapiente ea quam aliquam doloremque ipsam, nostrum est! Et, temporibus doloremque?</p>
       </div> -->
       <!-- /.container -->
     <!-- </footer>

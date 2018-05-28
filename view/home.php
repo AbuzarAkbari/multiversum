@@ -1,6 +1,3 @@
-<?php
-require 'view/header.php';
-?>
 <div id="content">
 <main role="main">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -161,6 +158,3 @@ require 'view/header.php';
 </main>
 </body>
 </div>
-<?php   
-    require 'view/footer.php';
-?>
