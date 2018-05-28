@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" href="">Home</span></a>
+                <a class="nav-link" href="index.php">Home</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?op=allProducts">Shop</a>
