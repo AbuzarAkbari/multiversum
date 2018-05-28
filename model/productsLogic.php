@@ -4,7 +4,7 @@ require_once 'DataHandler.php';
 class productslogic {
 
     public function __construct() {
-        $this->DataHandler = new DataHandler("localhost","multiversum","root","");
+        $this->DataHandler = new DataHandler("localhost","multiversum","abuzar","test");
     }
 
     public function __destruct() {
@@ -18,7 +18,7 @@ class productslogic {
     }
 
     public function readProduct($id) {
-        return $this->DataHandler->ReadData("SELECT * FROM products WHERE products_id=$id");
+        return $this->DataHandler->ReadData("SELECT * FROM products WHERE product_id=$id");
     }
 
     public function readproducts($perPage,$start) {
@@ -26,11 +26,11 @@ class productslogic {
     }
 
     public function total() {
-        return $this->DataHandler->ReadData("SELECT COUNT(products_id) FROM products")[0]["COUNT(products_id)"];
+        return $this->DataHandler->ReadData("SELECT COUNT(product_id) FROM products")[0]["COUNT(product_id)"];
     }
 
     public function searchTotal($value) {
-        return $this->DataHandler->ReadData("SELECT COUNT(products_id) FROM products WHERE product_name LIKE '%$value%'")[0]["COUNT(products_id)"];
+        return $this->DataHandler->ReadData("SELECT COUNT(product_id) FROM products WHERE product_name LIKE '%$value%'")[0]["COUNT(product_id)"];
     }
 
     public function searchProducts($value,$start,$perPage) {
@@ -38,11 +38,11 @@ class productslogic {
     }
 
     public function updateProduct($type_code,$supplier,$name,$price,$details,$id) {
-        return $this->DataHandler->UpdateData("UPDATE products SET `product_type_code`='$type_code', `supplier_id`='$supplier',`product_name`='$name',`prijs`='$price',`other_product_details`='$details' WHERE `products_id`=$id");
+        return $this->DataHandler->UpdateData("UPDATE products SET `product_type_code`='$type_code', `supplier_id`='$supplier',`product_name`='$name',`prijs`='$price',`other_product_details`='$details' WHERE `product_id`=$id");
     }
 
     public function deleteProduct($id) {
-        return $this->DataHandler->DeleteData("DELETE FROM products WHERE products_id=$id");
+        return $this->DataHandler->DeleteData("DELETE FROM products WHERE product_id=$id");
     }
 
     public function DescribeProducts() {
