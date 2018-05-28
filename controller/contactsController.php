@@ -36,6 +36,9 @@ class ContactsController
                 case "allProducts" :
                     $this->collectAllProducts();
                     break;
+                case "contact" :
+                    $this->collectContact();
+                    break;
                 default:
                     $this->collectReadHome();
                     break;
@@ -117,6 +120,9 @@ class ContactsController
         $result = $this->productsLogic->printDiv($products,"product_name","image","product_price");
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
+    }
+    public function collectContact(){
+        
     }
 
 //<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]' ><i class='fas fa-book'></i> Read</a>
