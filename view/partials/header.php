@@ -22,10 +22,10 @@
     <link href="view/assets/css/style.css" rel="stylesheet">
   </head>
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top madison">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top LightSeaGreen">
         <a class="navbar-bran " href="#">
-          <img width="90" src="view/assets/images/logo.svg" alt="logo">
-          <span class='LightSeaGreen-text'>Multiversum</span> 
+          <img width="90" src="view/assets/images/logo_test.svg" alt="logo">
+          <span class='text-white'>Multiversum</span>
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

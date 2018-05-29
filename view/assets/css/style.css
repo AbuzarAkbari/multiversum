@@ -14,14 +14,15 @@ body {
 
 .madison{
     background-color:#2c3e50;
-  /* background: linear-gradient(to right, rgba(255,0,0,0), #2c3e50);} */
 }
+
 .MoonYellow{
     background-color:#F1C40F;
 }
 
 .LightSeaGreen{
     background-color:#1ABC9C;
+    /* color: #fff; */
 }
 
 .LightSeaGreen-text{
@@ -60,4 +61,7 @@ body {
 }
 .footer ul li i{
         color: #F1C40F;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: #fff;
 }
