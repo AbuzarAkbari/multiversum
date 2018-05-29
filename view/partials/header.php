@@ -33,20 +33,20 @@
                 <a class="nav-link" href="index.php?op=allProducts">Shop</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href"">Contact</a>
+                <a class="nav-link" href="index.php?op=contact">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled">Winkelwagen</a>
             </li>
         </ul>
-      <form class="form-inline">  
+      <form class="form-inline">
         <div class="input-group mt-2">
           <input type="text" class="form-control ">
           <div class="input-group-append">
             <button class="btn " type="button"><i class="fas fa-search"></i></button>
           </div>
         </div>
-      <button type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></button>        
+      <button type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></button>
       </form>
     </div>
 </nav>

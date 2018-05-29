@@ -11,7 +11,7 @@
 
     <div class="row my-5">
     <?php
-        echo $result;  
+        echo $result;
     ?>
     </div>
 
@@ -39,4 +39,3 @@
   </div>
 
 </div>
-
