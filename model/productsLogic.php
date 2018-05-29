@@ -21,7 +21,7 @@ class productsLogic
     public function createCarouselImage()
     {
         try {
-            return $this->DataHandler->CreateData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id");
+            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -178,6 +178,23 @@ class productsLogic
         
         return $table;
     }
+    function createCarousel($array,$imagePath){
+        $carousel="";
+
+        $carousel.="
+            <div class='carousel-item'>
+            ";
+
+        foreach ($array as $key => $value) {
+            foreach ($value as $k => $v){
+                $carousel.="<img class='first-slide' src='$value[$imagePath]' alt=''>";
+            }
+        }
+        $carousel.= "</div>";
+    }
 }
+
+    
+
 
 ?>

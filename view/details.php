@@ -13,11 +13,10 @@
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-
-                    <div class="carousel-item active">
-                        <img class="first-slide" src="http://via.placeholder.com/1920x1000" alt="First slide">
+                    <div class="carousel-item">
+                        <img class="first-slide" src="assets/images/HTC_Vive/2001214987.jpeg" alt="First slide">
                     </div>
-                    
+
                     </div>
                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

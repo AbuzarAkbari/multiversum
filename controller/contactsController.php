@@ -22,7 +22,7 @@ class ContactsController
                     $this->collectCreateContact();
                     break;
                 case "read";
-                    $this->collectReadContact();
+                    $this->collectImage();
                     break;
                 case "update";
                     $this->collectUpdateContact();
@@ -83,13 +83,6 @@ class ContactsController
 
     public function collectReadHome()
     {
-        $contacts = $this->productsLogic->readProducts();
-        $btn = $this->btnInArray($contacts);
-        $a = $this->replace($btn);
-//        var_dump($a);
-//        $result = $this->productsLogic->printTable($a);
-        $result = $this->productsLogic->printTable($a);
-        $pages = $this->productsLogic->pagination();
         include 'view/home.php';
 
     }
@@ -97,13 +90,18 @@ class ContactsController
     public function collectImage()
     {
         $products = $this->productsLogic->createCarouselImage();
-        $result = $this->productsLogic->printTable($products);
-        var_dump($result);
-        var_dump($products);
+        $result = $this->productsLogic->createCarousel($products,"image_path");
         
+
+        // echo"<pre>";
+        // var_dump($this->productsLogic->createCarouselImage());
+        // echo "</pre>";
+        // var_dump($products);
+
         include 'view/details.php';
 
     }
+
 
     public function collectUpdateContact()
     {
@@ -132,6 +130,7 @@ class ContactsController
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
+
     public function collectContact(){
         include "view/contact.php";
     }
