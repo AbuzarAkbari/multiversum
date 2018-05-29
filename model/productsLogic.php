@@ -18,6 +18,15 @@ class productsLogic
         }
     }
 
+    public function createCarouselImage()
+    {
+        try {
+            return $this->DataHandler->CreateData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id");
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
+
     public function searchContacts($search)
     {
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
