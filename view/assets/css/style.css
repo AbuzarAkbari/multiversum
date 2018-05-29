@@ -62,6 +62,12 @@ body {
 .footer ul li i{
         color: #F1C40F;
 }
+.footer ul li i:hover{
+        color: #1ABC9C;
+}
 .navbar-dark .navbar-nav .nav-link{
     color: #fff;
+}
+.footer-logo{
+    width: auto;
 }
