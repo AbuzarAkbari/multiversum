@@ -5,7 +5,13 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="view/assets/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="view/assets/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="view/assets/fav/favicon-16x16.png">
+    <link rel="manifest" href="view/assets/fav/site.webmanifest">
+    <link rel="mask-icon" href="view/assets/fav/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#00a300">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->

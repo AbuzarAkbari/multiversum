@@ -11,17 +11,17 @@
         <div class="mb-5 mt-4 col">
             <p>
                 <h2><strong>Contactgegevens</strong></h2>
-                Tel: 030-2393383<br>
-                Email: info@Multiversum.nl
+                Tel: (656)-976-4980<br>
+                Email: jack.jones@multiversum.com
             </p>
         </div>
         <div class="mb-5 mt-4 col">
             <p>
                 <h2><strong>Adresgegevens</strong></h2>
                 Multiversum<br>
-                Harmonielaan 1<br>
-                3438 ED Nieuwegein<br>
-                Nederland
+                1861 jan pieterszoon coenstraat<br>
+                69217 maasdriel<br>
+                zeeland
             </p>
         </div>
     </div>
@@ -29,7 +29,7 @@
 <hr class="mb-5 mt-5">
 <div class="container-fluid">
     <div class="embed-responsive embed-responsive-21by9">
-        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2453.936810946744!2d5.0917534799298165!3d52.04446377921312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c665b15646d361%3A0x906bccec2f833d79!2sHarmonielaan+1%2C+3438+ED+Nieuwegein!5e0!3m2!1snl!2snl!4v1527543831876" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.377988051701!2d5.095329079931542!3d52.09105207578099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c66f65451cd7b3%3A0xa52fd8e5ccf60705!2sJan+Pieterszoon+Coenstraat%2C+Utrecht!5e0!3m2!1snl!2snl!4v1527578964225" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
 <hr class="mb-5 mt-5">
 
