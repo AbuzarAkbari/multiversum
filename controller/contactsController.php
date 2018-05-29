@@ -94,6 +94,17 @@ class ContactsController
 
     }
 
+    public function collectImage()
+    {
+        $products = $this->productsLogic->createCarouselImage();
+        $result = $this->productsLogic->printTable($products);
+        var_dump($result);
+        var_dump($products);
+        
+        include 'view/details.php';
+
+    }
+
     public function collectUpdateContact()
     {
         if (isset($_POST['send'])) {
