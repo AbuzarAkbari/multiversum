@@ -9,10 +9,10 @@ class productsLogic
         $this->DataHandler = new DataHandler("mysql", "localhost", "multiversum", "root", "");
     }
 
-    public function createContact($code, $supplier_id, $product_name, $product_price, $other_product_details)
+    public function createContact($code, $supplier_id, $product_name, $price, $other_product_details)
     {
         try {
-            return $this->DataHandler->CreateData("INSERT INTO products (product_type_code, supplier_id, product_name, product_price, other_product_details) VALUES ('$code','$supplier_id', '$product_name', '$product_price','$other_product_details')");
+            return $this->DataHandler->CreateData("INSERT INTO products (product_type_code, supplier_id, product_name, price, other_product_details) VALUES ('$code','$supplier_id', '$product_name', '$price','$other_product_details')");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -44,7 +44,7 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT `product_price`,`platform`,`functies`,`color`,`image`,`product_name` FROM products LIMIT 6 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT `price`,`platform`,`function`,`color`,`image`,`product_name` FROM products LIMIT 6 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -55,9 +55,9 @@ class productsLogic
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-    public function updateContact($code, $supplier_id, $product_name, $product_price, $other_product_details, $id)
+    public function updateContact($code, $supplier_id, $product_name, $price, $other_product_details, $id)
     {
-        return $this->DataHandler->updateData("UPDATE products SET `product_type_code` = '$code', `supplier_id` = '$supplier_id', `product_name` = '$product_name', `product_price` = $product_price, `other_product_details` = '$other_product_details' WHERE product_id = '$id'");
+        return $this->DataHandler->updateData("UPDATE products SET `product_type_code` = '$code', `supplier_id` = '$supplier_id', `product_name` = '$product_name', `price` = $price, `other_product_details` = '$other_product_details' WHERE product_id = '$id'");
     }
 
     public function deleteContact($id)
