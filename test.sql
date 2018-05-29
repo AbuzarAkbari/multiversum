@@ -104,3 +104,9 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- instert
+-- INSERT INTO `products` (`price`,`platform`,`display`,`resolution`,`refresh_rate`,`function`,`color`,`accessoires`,`product_name`)
+-- VALUES(599,"PC","JA","2160x1200","90hz","Accelerometer, Camera, Gyroscoop, Verstelbare lenzen","zwart","Controller(s),Headset bedraad, Kabels","HTC Vive");

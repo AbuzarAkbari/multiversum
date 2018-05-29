@@ -51,7 +51,7 @@ class ContactsController
     public function collectCreateContact()
     {
         if (isset($_POST['send'])) {
-            $create = $this->productsLogic->createContact($_POST['product_type_code'], $_POST['supplier_id'], $_POST['product_name'], $_POST['product_price'], $_POST['other_product_details']);
+            $create = $this->productsLogic->createContact($_POST['product_type_code'], $_POST['supplier_id'], $_POST['product_name'], $_POST['price'], $_POST['other_product_details']);
             $this->collectReadContact($create);
         } else {
             $form = $this->productsLogic->createForm();
@@ -97,7 +97,7 @@ class ContactsController
     public function collectUpdateContact()
     {
         if (isset($_POST['send'])) {
-            $this->productsLogic->updateContact($_POST['product_type_code'], $_POST['supplier_id'], $_POST['product_name'], $_POST['product_price'], $_POST['other_product_details'], $_GET['id']);
+            $this->productsLogic->updateContact($_POST['product_type_code'], $_POST['supplier_id'], $_POST['product_name'], $_POST['price'], $_POST['other_product_details'], $_GET['id']);
             $this->collectReadContact($_GET['id']);
         } else {
             $dataProduct = $this->productsLogic->readProduct($_GET['id'])[0];
@@ -117,7 +117,7 @@ class ContactsController
         $products = $this->productsLogic->readProducts();
 //        var_dump($a);
 //        $result = $this->productsLogic->printTable($a);
-        $result = $this->productsLogic->printDiv($products,"product_name","image","product_price");
+        $result = $this->productsLogic->printDiv($products,"product_name","image","price");
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
@@ -141,7 +141,7 @@ class ContactsController
     public function replace($array)
     {
         foreach ($array as $key => $value) {
-            $array[$key]["product_price"] = "€ " . str_replace(".", ",", $value['product_price']);
+            $array[$key]["price"] = "€ " . str_replace(".", ",", $value['price']);
         }
         return $array;
     }
