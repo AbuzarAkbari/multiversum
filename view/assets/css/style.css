@@ -71,3 +71,7 @@ body {
 .footer-logo{
     width: auto;
 }
+.social-ul{
+    text-decoration: none;
+    list-style-type: none;
+}

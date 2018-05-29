@@ -2,18 +2,18 @@
     <!-- Footer -->
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-md-3">
             <img class="mb-3 img-fluid" src="view/assets/images/mvm.png" alt="X">
         </div>
-        <div class="col mb-4">
+        <div class="col-md-4 mb-4">
             <div class="footer-title"><strong>Contact</strong></div>
             <div>Multiversum
             <br>1861 jan pieterszoon coenstraat<br>
             </i><a id="footer_widget_link_1" href="mailto:post@eldermans-geerts.nl" target="_top">jack.jones@multiversum.com</a><br>
             <a id="footer_widget_link_2" href="tel:(656)-976-4980">(656)-976-4980</a></div>
         </div>
-        <div class="col">
-            <ul>
+        <div class="col-md-5">
+            <ul class="social-ul">
                 <li><a href="?op=contact" class="pr-1"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
                 <li><a href="?op=contact" class="pr-1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
             </ul>
