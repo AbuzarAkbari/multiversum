@@ -1,9 +1,17 @@
 
     <!-- Footer -->
     <footer class="py-5 madison">
+        <div class="container">
+            <div class="footer">
+                <ul>
+                    <li><a href="?op=contact" class="pr-1"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="?op=contact" class="pr-1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
       <div class="container">
         <p class="m-0 text-center text-white">Multiversum &copy; All rights reserved | Design by Abuzar & Akram</p>
-      </div> -->
+      </div>
       <!-- /.container -->
     <!-- </footer>
 
