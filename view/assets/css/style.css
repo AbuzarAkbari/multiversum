@@ -24,6 +24,10 @@ body {
     background-color:#1ABC9C;
 }
 
+.LightSeaGreen-text{
+  color: #1ABC9C;
+}
+
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
     bottom: 3rem;

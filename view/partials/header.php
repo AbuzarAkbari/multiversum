@@ -23,8 +23,9 @@
   </head>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top madison">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-bran " href="#">
           <img width="90" src="view/assets/img/logo.svg" alt="logo">
+          <span class='LightSeaGreen-text'>Multiversum</span> 
         </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
