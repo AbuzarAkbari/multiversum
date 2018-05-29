@@ -1,6 +1,6 @@
 <?php include "partials/header.php"; ?>
 
-  <body class="bg-light">
+  <body>
 
     <div class="container">
       <div class="py-5 text-center">
