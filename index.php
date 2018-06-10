@@ -7,5 +7,3 @@
     ?>
 
 <?php require "view/partials/footer.php"; ?>
-
-
