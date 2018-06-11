@@ -41,7 +41,7 @@ class productsLogic
     public function readProduct($id)
     {
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM products WHERE product_id = '$id'");
+            return $this->DataHandler->ReadData("SELECT platform,resolution,refresh_rate,function,color,accessoires,EAN,connection,brand,detail FROM products WHERE product_id = '$id'");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -53,11 +53,12 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT `price`,`platform`,`function`,`color`,`image`,`product_name` FROM products LIMIT 6 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id GROUP BY `photos`.Products_product_id LIMIT 6 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
     }
+
 
     public function totalRows()
     {
@@ -148,49 +149,93 @@ class productsLogic
         return $table;
     }
 
-    function printDiv($array, $columnTitle,$image,$productPrice)
+    public function printDetailTable($array){
+        $table = "<table class='table table-responsive'>";
+
+        foreach ($array as $k => $v) {
+            foreach ($v as $key => $value) {
+                $table .= "<tr>";
+                $table .= "<th>" . $key . "</th>";
+                $table .= "<td>" . $value . "</td>";
+                $table .= "<tr>";
+            }
+
+        }
+        $table .= "</table>";
+        return $table;
+    }
+
+    function printDiv($array, $columnTitle, $image, $productPrice)
     {
-        $table = "";
         foreach ($array as $key => $value) {
+            // var_dump($array);
+            $table = "";
+
             $table .= "<div class='col-lg-4 col-md-6 mb-4'>
-            <div class='card'>
-              <a href='index.php?op=read&id='><img class='card-img-top' src='$value[$image]' alt=></a>
-              <div class=''>
-                <h4 class='card-title'>
-                  <a href='index.php?op=read&id='>$value[$columnTitle]</a>
-                </h4>";
-                foreach ($value as $key => $v) {
-                    $table .= "<li class='list-group-item'> <b>" . $key . "</b>" . $v . "</li>";
-                }
-                $table .= "
-                </div>
-                <div class='card-footer'>
-                  <small class='text-muted'>$value[$productPrice] 
-                  </small>
-                </div>
-              </div>
-           </div>";
+                        <div class='card mb-3'>
+                        <img class='card-img' src='$value[$image]' alt='Card image'>
+                        <div class='card-body'>
+                            <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[$columnTitle]</a>
+                            <p class='card-text'>$value[detail]</p>
+                            <h5 class='card-title'>$value[$productPrice]</h5>
+                        </div>
+                        <div class='card-footer'>
+                        <p class='card-text'>
+                            <small>       
+                            <button type='button' class='btn MoonYellow'>Kopen</button>
+                            <button type='button' class='btn LightSeaGreen'>Lees meer</button>  
+                            </small></p>
+                        </div>
+                        </div>
+                    </div>
+
+
+              ";
         }
 
         // Dit moet na index.php?op=read&id= $value[product_id]'
 
 
-        
         return $table;
     }
-    function createCarousel($array,$imagePath){
-        $carousel="";
 
-        $carousel.="
-            <div class='carousel-item'>
-            ";
-
-        foreach ($array as $key => $value) {
-            foreach ($value as $k => $v){
-                $carousel.="<img class='first-slide' src='$value[$imagePath]' alt=''>";
-            }
+    function createCarousel($iArray)
+    {
+        $detail = "";
+        $detail .= "<div class='col-md-12'>
+                    
+                    <div id='carouselExampleIndicators' class='carousel slide' data-ride='carousel'>
+                    <ol class='carousel-indicators'>";
+        foreach ($iArray as $key => $value) {
+            $detail .= "<li data-target='#carouselExampleIndicators' data-slide-to=$key></li>";
         }
-        $carousel.= "</div>";
+        $detail .= "</ol>";
+        $detail .= "<div class='carousel-inner' role='listbox'>";
+
+        foreach ($iArray as $key => $value) {
+            $detail .= "<div   class='carousel-item " . ($key == 0 ? 'active' : '') . "' style='background-image: url($value[image_path])'>
+                            <img src='$value[image_path]'  class='d-block w-100 h-auto' alt=''>
+                        </div>";
+        }
+
+        $detail .= "</div>
+                    <a class='carousel-control-prev text-black' href='#carouselExampleIndicators' role='button' data-slide='prev'>
+                        <span class='carousel-control-prev-icon bg-secondary ' aria-hidden='true'></span>
+                        <span class='sr-only '>Previous</span>
+                    </a>
+                    <a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
+                         <span class='carousel-control-next-icon bg-secondary' aria-hidden='true'></span>
+                         <span class='sr-only'>Next</span>
+                     </a>
+                     </div></div>
+
+                     <div class='card-footer'>
+                        <a   href=\"#\" class=\"btn btn-success\">Winkelwagen</a>
+                        <input class='float-right' type='number' value='' size='4'>
+                     </div>
+                     ";
+
+        return $detail;
     }
 }
 

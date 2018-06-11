@@ -21,6 +21,9 @@ class ContactsController
                 case "create";
                     $this->collectCreateContact();
                     break;
+                case "shop";
+                    $this->shopping();
+                    break;
                 case "read";
                     $this->collectImage();
                     break;
@@ -63,22 +66,14 @@ class ContactsController
     {
         $search = $this->productsLogic->searchContacts($_REQUEST['w']);
         $btn = $this->btnInArray($search);
-        $result = $this->productsLogic->printTable($btn);
+        $result = $this->productsLogic->printDetailTable($btn);
         $pages = $this->productsLogic->pagination();
         include 'view/home.php';
     }
 
-    public function collectReadContact()
+    public function shopping()
     {
-        if (isset($_GET['id'])) {
-            $product = $this->productsLogic->readProduct($_GET['id']);
-            $btn = $this->btnInArray($product);
-            $a = $this->replace($btn);
-            $result = $this->productsLogic->printTable($a);
-            include 'view/details.php';
-        } else {
-            $this->collectReadProducts();
-        }
+        include 'view/shopping.php';
     }
 
     public function collectReadHome()
@@ -90,9 +85,9 @@ class ContactsController
     public function collectImage()
     {
         $products = $this->productsLogic->createCarouselImage();
-        $result = $this->productsLogic->createCarousel($products,"image_path");
-        
-
+        $result = $this->productsLogic->createCarousel($products);
+        $product = $this->productsLogic->readProduct($_GET['id']);
+        $table = $this->productsLogic->printDetailTable($product);
         // echo"<pre>";
         // var_dump($this->productsLogic->createCarouselImage());
         // echo "</pre>";
@@ -126,7 +121,7 @@ class ContactsController
         $products = $this->productsLogic->readProducts();
 //        var_dump($a);
 //        $result = $this->productsLogic->printTable($a);
-        $result = $this->productsLogic->printDiv($products,"product_name","image","price");
+        $result = $this->productsLogic->printDiv($products,"product_name","image_path","price");
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
