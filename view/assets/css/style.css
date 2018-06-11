@@ -85,3 +85,19 @@ body {
     text-decoration: none;
     list-style-type: none;
 }
+ul.social-ul{
+    padding: 0 2px;
+    font-size: 20px;
+}
+@media (max-width: 375px){
+    /* ul.social-ul{
+        padding: 0 2px;
+        font-size: 20px;
+    } */
+}
+@media (max-width: 320px){
+    /* ul.social-ul{
+        padding: 0 2px;
+        font-size: 20px;
+    } */
+}
