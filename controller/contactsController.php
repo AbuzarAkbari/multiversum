@@ -42,6 +42,9 @@ class ContactsController
                 case "contact" :
                     $this->collectContact();
                     break;
+                case "admin" :
+                    $this->collectAdmin();
+                    break;
                 default:
                     $this->collectReadHome();
                     break;
@@ -128,6 +131,9 @@ class ContactsController
 
     public function collectContact(){
         include "view/contact.php";
+    }
+    public function collectAdmin(){
+        include "view/admin.php";
     }
 
 //<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]' ><i class='fas fa-book'></i> Read</a>

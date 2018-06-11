@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e3a678-cd3c-42cf-8a48-9391b04b2434" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/shopping.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multiversum.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/insert.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/admin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/contactsController.php" afterPath="$PROJECT_DIR$/controller/contactsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/productsLogic.php" afterPath="$PROJECT_DIR$/model/productsLogic.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/assets/css/style.css" afterPath="$PROJECT_DIR$/view/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/details.php" afterPath="$PROJECT_DIR$/view/details.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/partials/header.php" afterPath="$PROJECT_DIR$/view/partials/header.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shopping.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shopping.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/shopping.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="517">
@@ -61,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contactsController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="contactsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/contactsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="73" column="30" lean-forward="true" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+            <state relative-caret-position="-1260">
+              <caret line="76" column="30" lean-forward="true" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -106,9 +101,9 @@
         <option value="$PROJECT_DIR$/view/assets/css/style.css" />
         <option value="$PROJECT_DIR$/view/details.php" />
         <option value="$PROJECT_DIR$/model/productsLogic.php" />
-        <option value="$PROJECT_DIR$/controller/contactsController.php" />
         <option value="$PROJECT_DIR$/view/partials/header.php" />
         <option value="$PROJECT_DIR$/view/shopping.php" />
+        <option value="$PROJECT_DIR$/controller/contactsController.php" />
       </list>
     </option>
   </component>
@@ -243,16 +238,15 @@
       <workItem from="1527543181560" duration="350000" />
       <workItem from="1527592519759" duration="181000" />
       <workItem from="1527595076082" duration="797000" />
-      <workItem from="1528745130951" duration="6804000" />
+      <workItem from="1528745130951" duration="6963000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15400000" />
+    <option name="totallyTimeSpent" value="15559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -504,14 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/contactsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="73" column="30" lean-forward="true" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/shopping.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="517">
@@ -521,6 +507,14 @@
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/contactsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1260">
+          <caret line="76" column="30" lean-forward="true" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
