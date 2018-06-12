@@ -83,7 +83,7 @@ class ContactsController{
 
     public function collectImage()
     {
-        $products = $this->productsLogic->createCarouselImage();
+        $products = $this->productsLogic->createCarouselImage($_GET['id']);
         $result = $this->productsLogic->createCarousel($products);
         $product = $this->productsLogic->readProduct($_GET['id']);
         $table = $this->productsLogic->printDetailTable($product);

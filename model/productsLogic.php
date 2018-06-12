@@ -18,10 +18,10 @@ class productsLogic
         }
     }
 
-    public function createCarouselImage()
+    public function createCarouselImage($id)
     {
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id");
+            return $this->DataHandler->ReadData("SELECT image_path FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id WHERE product_id = '$id'");
         } catch (Exeption $e) {
             throw $e;
         }
