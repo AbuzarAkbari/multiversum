@@ -239,6 +239,14 @@ class productsLogic
 
         return $detail;
     }
+    /**/
+    /**/
+    /**/
+    /*vanaf hier is alles test*/
+    /**/
+    /**/
+    /**/
+
 }
 
 
