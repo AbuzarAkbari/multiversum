@@ -42,9 +42,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php?op=contact">Contact</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Winkelwagen</a>
-            </li>
         </ul>
       <form class="form-inline">
         <div class="input-group mt-2">

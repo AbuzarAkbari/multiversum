@@ -182,8 +182,8 @@ class productsLogic
                         <div class='card-footer'>
                         <p class='card-text'>
                             <small>       
-                            <button type='button' class='btn MoonYellow'>Kopen</button>
-                            <button type='button' class='btn LightSeaGreen'>Lees meer</button>  
+                            <a type='button' class='btn MoonYellow'>Kopen</a>
+                            <a type='button' href='index.php?op=read&id=$value[product_id]' class='btn text-dark LightSeaGreen'>Lees meer</a>  
                             </small></p>
                         </div>
                         </div>

@@ -55,33 +55,33 @@ body {
     /*height: 25em;*/
 /*}*/
 
-/*.footer {*/
-    /*float: left;*/
-/*}*/
+.footer {
+    float: left;
+}
 
-/*.footer ul li {*/
-    /*list-style-type: none;*/
-    /*float: left;*/
-    /*color: #F1C40F;*/
-/*}*/
+.footer ul li {
+    list-style-type: none;
+    float: left;
+    color: #F1C40F;
+}
 
-/*.footer ul li i {*/
-    /*color: #F1C40F;*/
-/*}*/
+.footer ul li i {
+    color: #F1C40F;
+}
 
-/*.footer ul li i:hover {*/
-    /*color: #1ABC9C;*/
-/*}*/
+.footer ul li i:hover {
+    color: #1ABC9C;
+}
 
-/*.navbar-dark .navbar-nav .nav-link {*/
-    /*color: #fff;*/
-/*}*/
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
 
-/*.footer-logo {*/
-    /*width: auto;*/
-/*}*/
+.footer-logo {
+    width: auto;
+}
 
-/*.social-ul {*/
-    /*text-decoration: none;*/
-    /*list-style-type: none;*/
-/*}*/
+.social-ul {
+    text-decoration: none;
+    list-style-type: none;
+} 
