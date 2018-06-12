@@ -7,11 +7,10 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="mb-5 mt-4 col">
 
+        <div class="mb-5 mt-4 col-md-12">
+            <pre>test</pre>
         </div>
-        <div class="mb-5 mt-4 col">
 
-        </div>
     </div>
 </div>
