@@ -167,25 +167,25 @@ class productsLogic
 
     public function printDiv($array)
     {
-        
+
         $table="";
         foreach ($array as $key => $value) {
-            
+
 
             $table .= "<div class='col-lg-4 col-md-6 mb-4'>
                         <div class='card mb-3'>
-                        <img class='card-img' src='$value[image_path]' alt='Card image'>
+                        <a href='index.php?op=read&id=$value[product_id]'><img class='card-img' src='$value[image_path]' alt='Card image'></a>
                         <div class='card-body'>
                             <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[product_name]</a>
                             <p class='card-text'>". substr($value['detail'],0,90). "..." .
                             "</p>
-                            <h5 class='card-title'>$value[price]</h5>
+                            <h5 class='card-title'>€ ". str_replace(".", ",", $value["price"]) ."</h5>
                         </div>
                         <div class='card-footer'>
                         <p class='card-text'>
-                            <small>       
+                            <small>
                             <a type='button' class='btn MoonYellow'>Kopen</a>
-                            <a type='button' href='index.php?op=read&id=$value[product_id]' class='btn text-dark LightSeaGreen'>Lees meer</a>  
+                            <a type='button' href='index.php?op=read&id=$value[product_id]' class='btn text-dark LightSeaGreen'>Lees meer</a>
                             </small></p>
                         </div>
                         </div>
@@ -205,7 +205,7 @@ class productsLogic
     {
         $detail = "";
         $detail .= "<div class='col-md-12'>
-                    
+
                     <div id='carouselExampleIndicators' class='carousel slide' data-ride='carousel'>
                     <ol class='carousel-indicators'>";
         foreach ($iArray as $key => $value) {
@@ -241,7 +241,7 @@ class productsLogic
     }
 }
 
-    
+
 
 
 ?>
