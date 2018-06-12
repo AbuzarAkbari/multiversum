@@ -165,18 +165,20 @@ class productsLogic
         return $table;
     }
 
-    function printDiv($array)
+    public function printDiv($array)
     {
+        
+        $table="";
         foreach ($array as $key => $value) {
-            // var_dump($array);
-            $table = "";
+            
 
             $table .= "<div class='col-lg-4 col-md-6 mb-4'>
                         <div class='card mb-3'>
                         <img class='card-img' src='$value[image_path]' alt='Card image'>
                         <div class='card-body'>
                             <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[product_name]</a>
-                            <p class='card-text'>$value[detail]</p>
+                            <p class='card-text'>". substr($value['detail'],0,90). "..." .
+                            "</p>
                             <h5 class='card-title'>$value[price]</h5>
                         </div>
                         <div class='card-footer'>

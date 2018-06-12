@@ -139,9 +139,4 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 INSERT INTO `photos` (`image_path`, `Products_product_id`) VALUES
-( 'view/assets/images/HTC_Vive/main.jpeg', 1),
-('view/assets/images/HTC_Vive/htc1.jpeg', 1),
-( 'view/assets/images/HTC_Vive/2001214991.jpeg', 1),
-( 'view/assets/images/HTC_Vive/2001214987.jpeg', 1),
-( 'view/assets/images/HTC_Vive/2001214983.jpeg', 1),
-( 'view/assets/images/HTC_Vive/2000965531.jpeg', 1);
+( 'view/assets/images/Sony_PlayStation/main.jpeg', 3)

@@ -118,9 +118,17 @@ class ContactsController{
     public function collectAllProducts()
     {
         $products = $this->productsLogic->readProducts();
+        // echo"<pre>";
+        // var_dump($products);
+        // echo"</pre>";
+
 //        var_dump($a);
 //        $result = $this->productsLogic->printTable($a);
         $result = $this->productsLogic->printDiv($products,"product_name","image_path","price");
+
+        // echo "<pre>";
+        // var_dump($products);
+        // echo "</pre>"; 
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
