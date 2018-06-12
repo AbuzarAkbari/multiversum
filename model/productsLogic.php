@@ -27,12 +27,12 @@ class productsLogic
         }
     }
 
-    public function searchContacts($search)
+    public function searchProducts($search)
     {
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM products WHERE product_name LIKE '%$search%' OR other_product_details LIKE '%$search%' LIMIT 5 OFFSET $offset;");
+            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id WHERE product_name LIKE '%$search%' OR detail LIKE '%$search%' LIMIT 5 OFFSET $offset;");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -165,7 +165,7 @@ class productsLogic
         return $table;
     }
 
-    function printDiv($array, $columnTitle, $image, $productPrice)
+    function printDiv($array)
     {
         foreach ($array as $key => $value) {
             // var_dump($array);
@@ -173,11 +173,11 @@ class productsLogic
 
             $table .= "<div class='col-lg-4 col-md-6 mb-4'>
                         <div class='card mb-3'>
-                        <img class='card-img' src='$value[$image]' alt='Card image'>
+                        <img class='card-img' src='$value[image_path]' alt='Card image'>
                         <div class='card-body'>
-                            <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[$columnTitle]</a>
+                            <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[product_name]</a>
                             <p class='card-text'>$value[detail]</p>
-                            <h5 class='card-title'>$value[$productPrice]</h5>
+                            <h5 class='card-title'>$value[price]</h5>
                         </div>
                         <div class='card-footer'>
                         <p class='card-text'>

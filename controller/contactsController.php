@@ -1,11 +1,9 @@
 <?php
 require './model/productsLogic.php';
 
-class ContactsController
-{
+class ContactsController{
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->productsLogic = new productsLogic();
     }
 
@@ -31,7 +29,7 @@ class ContactsController
                     $this->collectUpdateContact();
                     break;
                 case "search";
-                    $this->collectSearchContact();
+                    $this->collectSearchProducts();
                     break;
                 case "delete";
                     $this->collectDeleteContact();
@@ -65,13 +63,11 @@ class ContactsController
         }
     }
 
-    public function collectSearchContact()
-    {
-        $search = $this->productsLogic->searchContacts($_REQUEST['w']);
-        $btn = $this->btnInArray($search);
-        $result = $this->productsLogic->printDetailTable($btn);
-        $pages = $this->productsLogic->pagination();
-        include 'view/home.php';
+    public function collectSearchProducts(){
+        $search = $this->productsLogic->searchProducts($_REQUEST['w']);
+        $result = $this->productsLogic->printDiv($search);
+        
+        include 'view/products.php';
     }
 
     public function shopping()
