@@ -32,7 +32,7 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id WHERE product_name LIKE '%$search%' OR detail LIKE '%$search%' LIMIT 5 OFFSET $offset;");
+            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id WHERE product_name LIKE '%$search%' OR detail LIKE '%$search%' GROUP BY `photos`.Products_product_id LIMIT 5 OFFSET $offset;");
         } catch (Exeption $e) {
             throw $e;
         }
