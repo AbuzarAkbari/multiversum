@@ -7,30 +7,27 @@
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="first-slide" src="http://via.placeholder.com/1920x1000" alt="First slide">
+      <div class="carousel-item active carousel-height" style=" background-image: url('view/assets/images/HTC_Vive/main.jpeg'); background-repeat: no-repeat; background-size: contain; background-position: right;">
         <div class="container">
-          <div class="carousel-caption text-left">
+          <div class="carousel-caption text-left text-dark">
             <h1> headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p><a class="btn btn-lg btn-primary" href="#" role="button">Kopen</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="second-slide" src="http://via.placeholder.com/1920x1000" alt="Second slide">
+      <div class="carousel-item carousel-height" style=" background-image: url('view/assets/images/Sony_PlayStation/main.jpeg'); background-repeat: no-repeat; background-size: auto; background-position: center; ">
         <div class="container">
-          <div class="carousel-caption">
+          <div class="carousel-caption text-dark">
             <h1> headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p><a class="btn btn-lg btn-primary" href="#" role="button">Kopen</a></p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <img class="third-slide" src="http://via.placeholder.com/1920x1000" alt="Third slide">
+      <div class="carousel-item carousel-height" style=" background-image: url('view/assets/images/Lenovo_Explorer_Headset/main.jpeg'); background-repeat: no-repeat; background-size: auto; background-position: left; ">
         <div class="container">
-          <div class="carousel-caption text-right">
+          <div class="carousel-caption text-right text-dark">
             <h1> headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p><a class="btn btn-lg btn-primary" href="#" role="button">Kopen</a></p>
