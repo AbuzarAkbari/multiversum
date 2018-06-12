@@ -31,17 +31,18 @@ body {
 
 /* Since positioning the image, we need to help out the caption */
 
-.carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-}
+/*.carousel-caption {*/
+    /*bottom: 3rem;*/
+    /*z-index: 10;*/
+/*}*/
 
 /* Declare heights because of positioning of img element */
 
-/*.carousel-item {*/
-    /*height: 32rem;*/
-    /*background-color: #777;*/
-/*}*/
+.carousel-height {
+    height: 32rem;
+    width: auto;
+
+}
 
 /*.carousel-item>img {*/
     /*position: absolute;*/
