@@ -43,11 +43,11 @@
                 <a class="nav-link" href="index.php?op=contact">Contact</a>
             </li>
         </ul>
-      <form class="form-inline">
+      <form class="form-inline" action="index.php?op=search" method="post">
         <div class="input-group mt-2">
-          <input type="text" class="form-control ">
+          <input type="text" class="form-control" name="w">
           <div class="input-group-append">
-            <button class="btn " type="button"><i class="fas fa-search"></i></button>
+            <button class="btn" type="button"><i class="fas fa-search"></i></button>
           </div>
         </div>
       <a href="index.php?op=shop" type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></a>
