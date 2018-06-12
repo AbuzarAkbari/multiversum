@@ -27,7 +27,7 @@
           <img width="90" src="view/assets/images/logo_test.svg" alt="logo">
         </a>
         <span class='text-white'>Multiversum</span>
-        
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -45,7 +45,7 @@
         </ul>
       <form class="form-inline" action="index.php?op=search" method="post">
         <div class="input-group mt-2">
-          <input type="text" class="form-control" name="w">
+          <input type="text" class="form-control" placeholder="Zoek een product" name="w">
           <div class="input-group-append">
             <button class="btn" type="button"><i class="fas fa-search"></i></button>
           </div>
