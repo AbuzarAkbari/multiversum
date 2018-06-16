@@ -77,8 +77,12 @@ class ContactsController{
 
     public function collectReadHome()
     {
-        include 'view/home.php';
 
+        $product = $this->productsLogic->readProductsHome();
+
+        $item = $this->productsLogic->printDiv($product);
+
+        include 'view/home.php';
     }
 
     public function collectImage()

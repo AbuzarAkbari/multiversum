@@ -59,6 +59,16 @@ class productsLogic
         }
     }
 
+    public function readProductsHome()
+    {
+
+        try {
+            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id GROUP BY `photos`.Products_product_id LIMIT 6 ");
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
+
 
     public function totalRows()
     {
@@ -172,9 +182,9 @@ class productsLogic
         foreach ($array as $key => $value) {
 
 
-            $table .= "<div class='col-lg-4 col-md-6 mb-4'>
-                        <div class='card mb-3'>
-                        <a href='index.php?op=read&id=$value[product_id]'><img class='card-img' src='$value[image_path]' alt='Card image'></a>
+            $table .= "<div class='col-lg-4 col-md-6 mb-4 d-flex'>
+                        <div class='card mb-3 d-flex '>
+                        <a href='index.php?op=read&id=$value[product_id]'><img class='card-img'  src='$value[image_path]' alt='Card image'></a>
                         <div class='card-body'>
                             <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[product_name]</a>
                             <p class='card-text'>". substr($value['detail'],0,90). "..." .
@@ -201,20 +211,20 @@ class productsLogic
         return $table;
     }
 
-    function createCarousel($iArray)
+    function createCarousel($array)
     {
         $detail = "";
         $detail .= "<div class='col-md-12'>
 
                     <div id='carouselExampleIndicators' class='carousel slide' data-ride='carousel'>
                     <ol class='carousel-indicators'>";
-        foreach ($iArray as $key => $value) {
+        foreach ($array as $key => $value) {
             $detail .= "<li data-target='#carouselExampleIndicators' data-slide-to=$key></li>";
         }
         $detail .= "</ol>";
         $detail .= "<div class='carousel-inner' role='listbox'>";
 
-        foreach ($iArray as $key => $value) {
+        foreach ($array as $key => $value) {
             $detail .= "<div   class='carousel-item " . ($key == 0 ? 'active' : '') . "' style='background-image: url($value[image_path])'>
                             <img src='$value[image_path]'  class='d-block w-100 h-auto' alt=''>
                         </div>";
