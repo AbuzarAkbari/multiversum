@@ -51,11 +51,6 @@ class ContactsController{
             throw $e;
         }
     }
- //    public function collectReadContact() {
- //   $table = $this->createTable($a);
- //
- //   include 'view/admin.php';
- // }
 
     public function collectCreateContact()
     {
@@ -83,10 +78,10 @@ class ContactsController{
         include "view/contact.php";
     }
     public function collectAdmin(){
-
         $array = $this->productsLogic->readProducts();
-
-        $table = $this->productsLogic->printTable($array);
+        $a = $this->replace($array);
+        $table = $this->productsLogic->printTable($a);
+        $pagination = $this->productsLogic->pagination();
 
         include "view/admin.php";
     }
