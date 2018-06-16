@@ -47,43 +47,43 @@ class productsLogic
         }
     }
 
-    // public function readProducts()
-    // {
-    //
-    //     $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
-    //
-    //     try {
-    //         return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id GROUP BY `photos`.Products_product_id LIMIT 6 OFFSET $offset");
-    //     } catch (Exeption $e) {
-    //         throw $e;
-    //     }
-    // }
-
-    public function readProducts() {
+    public function readProducts()
+    {
 
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM `products` LIMIT 5 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id GROUP BY `photos`.Products_product_id LIMIT 6 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
     }
 
-    function readAdminProducts(){
-      try {
+    public function readAdminProducts() {
 
-          $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
+        $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
-          foreach ($data as $key => $value) {
-              $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
-      }
-          return $data;
-
-      } catch (Exception $e){
-        throw $e;
-      }
+        try {
+            return $this->DataHandler->ReadData("SELECT product_id,price,resolution,refresh_rate,color,brand FROM `products` LIMIT 5 OFFSET $offset");
+        } catch (Exeption $e) {
+            throw $e;
+        }
     }
+
+    // function readAdminProducts(){
+    //   try {
+    //
+    //       $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
+    //
+    //       foreach ($data as $key => $value) {
+    //           $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
+    //   }
+    //       return $data;
+    //
+    //   } catch (Exception $e){
+    //     throw $e;
+    //   }
+    // }
     public function totalRows()
     {
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products");
@@ -263,21 +263,6 @@ class productsLogic
 
         return $detail;
     }
-    /**/
-    /**/
-    /**/
-    /*vanaf hier is alles test*/
-    /**/
-    /**/
-    /**/public function pagination2() {
-            $data = $this->DataHandler->ReadData("SELECT COUNT(*) FROM products");
-            $pages = $data[0]["COUNT(*)"];
-            $pages = $pages / 5;
-            $pages = ceil($pages);
-            return $pages;
-        }
-
-
 }
 
 

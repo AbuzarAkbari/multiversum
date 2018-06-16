@@ -78,10 +78,12 @@ class ContactsController{
         include "view/contact.php";
     }
     public function collectAdmin(){
-        $array = $this->productsLogic->readProducts();
+        $array = $this->productsLogic->readAdminProducts();
         $a = $this->replace($array);
-        $table = $this->productsLogic->printTable($a);
-        $pagination = $this->productsLogic->pagination();
+        $b = $this->btnInArray($a);
+        $table = $this->productsLogic->printTable($b);
+        $pages = $this->productsLogic->pagination();
+
 
         include "view/admin.php";
     }
@@ -155,7 +157,8 @@ class ContactsController{
         include "view/products.php";
     }
 
-
+    // <a class=\"btn btn-primary\" \"><i class='fas fa-book'></i> read</a>
+    //  <a class=\"btn btn-success\" \"><i class='fas fa-edit'></i> Update</a>
 
 //<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]' ><i class='fas fa-book'></i> Read</a>
 
@@ -163,9 +166,10 @@ class ContactsController{
     {
         foreach ($array as $key => $value) {
             $array[$key]["Action"] =
-                "<div class=\"btn btn-primary mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=read&id=');\"><i class='fas fa-book'></i> read</div>
-                 <div class=\"btn btn-success mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=update&id=');\"><i class='fas fa-edit'></i> Update</div>
-                 <a class='btn btn-danger' href='index.php?op=delete&id='><i class='fas fa-trash-alt'></i> Delete</a>";
+
+                "<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]'><i class='fas fa-book'></i> Read</a>
+                 <a class='btn btn-success' href='index.php?op=update&id=$value[product_id]'><i class='fas fa-edit'></i> Update</a>
+                 <a class='btn btn-danger' href='index.php?op=delete&id=$value[product_id]'><i class='fas fa-trash-alt'></i> Delete</a>";
         }
         return $array;
     }
