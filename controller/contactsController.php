@@ -66,13 +66,26 @@ class ContactsController{
     public function collectSearchProducts(){
         $search = $this->productsLogic->searchProducts($_REQUEST['w']);
         $result = $this->productsLogic->printDiv($search);
-        
+
         include 'view/products.php';
     }
 
     public function shopping()
     {
         include 'view/shopping.php';
+    }
+    public function collectContact(){
+        include "view/contact.php";
+    }
+    public function collectAdmin(){
+        $array = $this->productsLogic->readAdminProducts();
+        $a = $this->replace($array);
+        $b = $this->btnInArray($a);
+        $table = $this->productsLogic->printTable($b);
+        $pages = $this->productsLogic->pagination();
+
+
+        include "view/admin.php";
     }
 
     public function collectReadHome()
@@ -84,6 +97,17 @@ class ContactsController{
 
         include 'view/home.php';
     }
+//     public function collectReadAdmin()
+//     {
+//         if (isset($_GET['id'])) {
+//        $contacts = $this->ContactsLogic->readContact($_GET['id']);
+//        $buttons = $this->createButtons($contacts);
+//        $a = $this->replace($buttons);
+//        $table = $this->createTable($a);
+//
+//         include 'view/admin.php';
+//
+// }}
 
     public function collectImage()
     {
@@ -132,17 +156,13 @@ class ContactsController{
 
         // echo "<pre>";
         // var_dump($products);
-        // echo "</pre>"; 
+        // echo "</pre>";
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
 
-    public function collectContact(){
-        include "view/contact.php";
-    }
-    public function collectAdmin(){
-        include "view/admin.php";
-    }
+    // <a class=\"btn btn-primary\" \"><i class='fas fa-book'></i> read</a>
+    //  <a class=\"btn btn-success\" \"><i class='fas fa-edit'></i> Update</a>
 
 //<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]' ><i class='fas fa-book'></i> Read</a>
 
@@ -150,9 +170,10 @@ class ContactsController{
     {
         foreach ($array as $key => $value) {
             $array[$key]["Action"] =
-                "<div class=\"btn btn-primary mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=read&id=');\"><i class='fas fa-book'></i> read</div>
-                 <div class=\"btn btn-success mb-2\" onclick=\"document.getElementById('content').innerHTML = loadPage('index.php?op=update&id=');\"><i class='fas fa-edit'></i> Update</div>
-                 <a class='btn btn-danger' href='index.php?op=delete&id='><i class='fas fa-trash-alt'></i> Delete</a>";
+
+                "<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]'><i class='fas fa-book'></i> Read</a>
+                 <a class='btn btn-success' href='index.php?op=update&id=$value[product_id]'><i class='fas fa-edit'></i> Update</a>
+                 <a class='btn btn-danger' href='index.php?op=delete&id=$value[product_id]'><i class='fas fa-trash-alt'></i> Delete</a>";
         }
         return $array;
     }
@@ -164,6 +185,22 @@ class ContactsController{
         }
         return $array;
     }
+    /**/
+    /**/
+    /**/
+    /*vanaf hier is alles test*/
+    /**/
+    /**/
+    /**/
+//     function createButtons($array){
+//
+// foreach($array as $key => $value){
+//
+//    $array[$key]["Action"] = " <a href='index.php?op=read&id=$value[supplier_id]'><button class='btn btn-primary'>read</button><a> <a href='index.php?op=update&id=$value[supplier_id]'><button class='btn btn-success'>Update</button><a>  <a href='index.php?op=delete&id=$value[supplier_id]'><button name='delete' value='delete' >Delete</button><a>";
+// }
+// return $array;
+// }
+
 }
 
 ?>

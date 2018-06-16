@@ -69,10 +69,34 @@ class productsLogic
         }
     }
 
+    public function readAdminProducts() {
 
+        $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
+
+        try {
+            return $this->DataHandler->ReadData("SELECT product_id,price,resolution,refresh_rate,color,brand FROM `products` LIMIT 5 OFFSET $offset");
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
+
+    // function readAdminProducts(){
+    //   try {
+    //
+    //       $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
+    //
+    //       foreach ($data as $key => $value) {
+    //           $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
+    //   }
+    //       return $data;
+    //
+    //   } catch (Exception $e){
+    //     throw $e;
+    //   }
+    // }
     public function totalRows()
     {
-        return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
+        return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products");
     }
 
     public function updateContact($code, $supplier_id, $product_name, $price, $other_product_details, $id)
@@ -85,7 +109,7 @@ class productsLogic
         return $this->DataHandler->DeleteData("DELETE FROM products WHERE product_id = $id");
     }
 
-    function pagination($perPage = 5)
+    function pagination($perPage = 6)
     {
         $count = $this->totalRows();
         $pages = ceil($count / $perPage);
@@ -139,7 +163,7 @@ class productsLogic
 
     public function printTable($array)
     {
-        $table = "<table class='table table-responsive'>";
+        $table = "<table class='table'>";
 
         foreach ($array as $key => $value) {
             $table .= "<thead class='thead-inverse'><tr>";

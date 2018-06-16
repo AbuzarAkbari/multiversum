@@ -5,7 +5,10 @@
 body {
     padding-top: 54px;
 }
+#content{
+    min-height: 475px;
 
+}
 @media (min-width: 992px) {
     body {
         padding-top: 56px;
@@ -85,4 +88,7 @@ body {
 .social-ul {
     text-decoration: none;
     list-style-type: none;
-} 
+}
+/* .footer-cont{
+    background-color: red;
+} */
