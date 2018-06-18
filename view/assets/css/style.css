@@ -32,6 +32,11 @@ body {
     color: #1ABC9C;
 }
 
+.madison-text {
+    color: #2c3e50;
+}
+
+
 /* Since positioning the image, we need to help out the caption */
 
 /*.carousel-caption {*/

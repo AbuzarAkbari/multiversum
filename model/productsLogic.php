@@ -21,7 +21,7 @@ class productsLogic
     public function createCarouselImage($id)
     {
         try {
-            return $this->DataHandler->ReadData("SELECT image_path FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id WHERE product_id = '$id'");
+            return $this->DataHandler->ReadData("SELECT image_path FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE EAN = '$id'");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -32,7 +32,7 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id WHERE product_name LIKE '%$search%' OR detail LIKE '%$search%' GROUP BY `photos`.Products_product_id LIMIT 5 OFFSET $offset;");
+            return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE product_name LIKE '%$search%' OR detail LIKE '%$search%' GROUP BY `photos`.Products_EAN LIMIT 5 OFFSET $offset;");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -41,7 +41,7 @@ class productsLogic
     public function readProduct($id)
     {
         try {
-            return $this->DataHandler->ReadData("SELECT platform,resolution,refresh_rate,function,color,accessoires,EAN,connection,brand,detail FROM products WHERE product_id = '$id'");
+            return $this->DataHandler->ReadData("SELECT platform,resolution,refresh_rate,function,color,accessoires,EAN,connection,brand,detail FROM products WHERE EAN = '$id'");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -53,7 +53,7 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id GROUP BY `photos`.Products_product_id LIMIT 6 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN GROUP BY `photos`.Products_EAN LIMIT 6 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -63,7 +63,7 @@ class productsLogic
     {
 
         try {
-            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.product_id = `photos`.Products_product_id GROUP BY `photos`.Products_product_id LIMIT 6 ");
+            return $this->DataHandler->ReadData("SELECT * FROM `products` INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN GROUP BY `photos`.Products_EAN LIMIT 6 ");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -74,7 +74,7 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT product_id,price,resolution,refresh_rate,color,brand FROM `products` LIMIT 5 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT EAN,price,resolution,refresh_rate,color,brand FROM `products` LIMIT 5 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -101,12 +101,12 @@ class productsLogic
 
     public function updateContact($code, $supplier_id, $product_name, $price, $other_product_details, $id)
     {
-        return $this->DataHandler->updateData("UPDATE products SET `product_type_code` = '$code', `supplier_id` = '$supplier_id', `product_name` = '$product_name', `price` = $price, `other_product_details` = '$other_product_details' WHERE product_id = '$id'");
+        return $this->DataHandler->updateData("UPDATE products SET `product_type_code` = '$code', `supplier_id` = '$supplier_id', `product_name` = '$product_name', `price` = $price, `other_product_details` = '$other_product_details' WHERE EAN = '$id'");
     }
 
     public function deleteContact($id)
     {
-        return $this->DataHandler->DeleteData("DELETE FROM products WHERE product_id = $id");
+        return $this->DataHandler->DeleteData("DELETE FROM products WHERE EAN = $id");
     }
 
     function pagination($perPage = 6)
@@ -208,9 +208,9 @@ class productsLogic
 
             $table .= "<div class='col-lg-4 col-md-6 mb-4 d-flex'>
                         <div class='card mb-3 d-flex '>
-                        <a href='index.php?op=read&id=$value[product_id]'><img class='card-img'  src='$value[image_path]' alt='Card image'></a>
+                        <a href='index.php?op=read&id=$value[EAN]'><img class='card-img'  src='$value[image_path]' alt='Card image'></a>
                         <div class='card-body'>
-                            <a href='index.php?op=read&id=$value[product_id]' class='card-title'>$value[product_name]</a>
+                            <a href='index.php?op=read&id=$value[EAN]' class='card-title'>$value[product_name]</a>
                             <p class='card-text'>". substr($value['detail'],0,90). "..." .
                             "</p>
                             <h5 class='card-title'>€ ". str_replace(".", ",", $value["price"]) ."</h5>
@@ -219,7 +219,7 @@ class productsLogic
                         <p class='card-text'>
                             <small>
                             <a type='button' class='btn MoonYellow'>Kopen</a>
-                            <a type='button' href='index.php?op=read&id=$value[product_id]' class='btn text-dark LightSeaGreen'>Lees meer</a>
+                            <a type='button' href='index.php?op=read&id=$value[EAN]' class='btn text-dark LightSeaGreen'>Lees meer</a>
                             </small></p>
                         </div>
                         </div>
@@ -229,7 +229,7 @@ class productsLogic
               ";
         }
 
-        // Dit moet na index.php?op=read&id= $value[product_id]'
+        // Dit moet na index.php?op=read&id= $value[EAN]'
 
 
         return $table;
