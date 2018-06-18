@@ -4,7 +4,11 @@
         <div class="my-5 col-12">
             <h1 class="text-center">Admin-panal</h1><br>
         </div>
+
         <div class="col-md-12">
+        <div class="text-right">
+        <a href="index.php?op=create" class="btn btn-primary my-3">nieuw product</a>
+        </div>
             <!-- <a href='index.php?op=create'><button class="but">Create New Product</button><a> -->
             <?php
                 // require 'header.php';

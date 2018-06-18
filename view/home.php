@@ -10,7 +10,7 @@
                     <div class="container">
                         <div class="carousel-caption text-left madison-text">
                             <h1> Sony PlayStation </h1>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Kopen</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="index.php?op=read&id=2750057115988" role="button">Kopen</a></p>
                         </div>
                     </div>
                 </div>

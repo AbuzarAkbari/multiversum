@@ -74,7 +74,7 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT EAN,price,resolution,refresh_rate,color,brand FROM `products` LIMIT 5 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT EAN,price,platform,product_name,color,brand FROM `products` LIMIT 5 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -119,12 +119,14 @@ class productsLogic
 
     public function describeProduct()
     {
-        return $this->DataHandler->ReadData("DESCRIBE stardunks.products");
+        return $this->DataHandler->ReadData("DESCRIBE multiversum.products");
     }
 
     public function createForm($dataProduct = FALSE)
     {
-        $form = "<form method='post'>";
+        $form = "
+        <div class='my-5 container col-md-4'>
+        <form method='post'>";
         $data = $this->describeProduct();
         foreach ($data as $key => $value) {
             if ($value['Extra'] != "auto_increment") {
@@ -151,12 +153,12 @@ class productsLogic
                 }
 
                 $form .= "<label class='form-control-label'>" . ucfirst(str_replace("_", " ", $value['Field'])) . "</label>";
-                $form .= "<input class='form-control' type='$type' max='$number' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
+                $form .= "<input class='form-control col-lg-12 ' type='$type' max='$number' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
             }
         }
         $form .= "<input class='btn btn-primary my-3 mr-1' type='submit' name='send'>";
-        $form .= "<a href='index.php' class='btn btn-primary'>Terug</a>";
-        $form .= "</form>";
+        $form .= "<a href='index.php?op=admin' class='btn btn-primary'>Terug</a>";
+        $form .= "</form></div>";
 
         return $form;
     }
