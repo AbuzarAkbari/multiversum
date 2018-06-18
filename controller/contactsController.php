@@ -114,10 +114,6 @@ class ContactsController{
         $result = $this->productsLogic->createCarousel($products);
         $product = $this->productsLogic->readProduct($_GET['id']);
         $table = $this->productsLogic->printDetailTable($product);
-        // echo"<pre>";
-        // var_dump($this->productsLogic->createCarouselImage());
-        // echo "</pre>";
-        // var_dump($products);
 
         include 'view/details.php';
 
@@ -145,25 +141,13 @@ class ContactsController{
     public function collectAllProducts()
     {
         $products = $this->productsLogic->readProducts();
-        // echo"<pre>";
-        // var_dump($products);
-        // echo"</pre>";
 
-//        var_dump($a);
-//        $result = $this->productsLogic->printTable($a);
         $result = $this->productsLogic->printDiv($products,"product_name","image_path","price");
 
-        // echo "<pre>";
-        // var_dump($products);
-        // echo "</pre>";
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
 
-    // <a class=\"btn btn-primary\" \"><i class='fas fa-book'></i> read</a>
-    //  <a class=\"btn btn-success\" \"><i class='fas fa-edit'></i> Update</a>
-
-//<a class='btn btn-primary' href='index.php?op=read&id=$value[EAN]' ><i class='fas fa-book'></i> Read</a>
 
     function btnInArray($array)
     {
