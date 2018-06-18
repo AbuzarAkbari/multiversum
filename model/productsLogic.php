@@ -96,7 +96,7 @@ class productsLogic
     // }
     public function totalRows()
     {
-        return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products");
+        return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
     public function updateContact($code, $supplier_id, $product_name, $price, $other_product_details, $id)

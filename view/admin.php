@@ -15,7 +15,7 @@
                 <ul class="pagination">
                     <?php
 
-                            for ($i = 0; $i < 5; $i++) {
+                            for ($i = 0; $i < $pages; $i++) {
                                 $get = array_merge($_GET, []);
                                 $get["page"] = $i;
                                 $get = http_build_query($get);

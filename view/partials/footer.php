@@ -3,7 +3,17 @@
 <div class="footer-cont container-fluid LightSeaGreen">
     <div class="row">
         <div class="col-md-4">
-            <!-- <img class="mb-3 img-fluid" src="view/assets/images/mvm.png" alt="X"> -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.php">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?op=allProducts">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?op=contact">Contact</a>
+                </li>
+            </ul>
         </div>
         <div class="col-md-4 mb-4">
             <div class="footer-title"><strong>Contact</strong></div>

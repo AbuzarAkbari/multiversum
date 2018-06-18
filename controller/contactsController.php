@@ -84,7 +84,6 @@ class ContactsController{
         $table = $this->productsLogic->printTable($b);
         $pages = $this->productsLogic->pagination();
 
-
         include "view/admin.php";
     }
 

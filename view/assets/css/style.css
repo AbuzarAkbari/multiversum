@@ -89,6 +89,15 @@ body {
     text-decoration: none;
     list-style-type: none;
 }
+.social-ul:hover {
+    color: #2c3e50;
+}
+.social-ul li a{
+    font-size: 21px;
+}
+.social-ul li a:hover{
+    color: #2c3e50;
+}
 /* .footer-cont{
     background-color: red;
 } */
