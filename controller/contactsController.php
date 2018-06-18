@@ -163,16 +163,16 @@ class ContactsController{
     // <a class=\"btn btn-primary\" \"><i class='fas fa-book'></i> read</a>
     //  <a class=\"btn btn-success\" \"><i class='fas fa-edit'></i> Update</a>
 
-//<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]' ><i class='fas fa-book'></i> Read</a>
+//<a class='btn btn-primary' href='index.php?op=read&id=$value[EAN]' ><i class='fas fa-book'></i> Read</a>
 
     function btnInArray($array)
     {
         foreach ($array as $key => $value) {
             $array[$key]["Action"] =
 
-                "<a class='btn btn-primary' href='index.php?op=read&id=$value[product_id]'><i class='fas fa-book'></i> Read</a>
-                 <a class='btn btn-success' href='index.php?op=update&id=$value[product_id]'><i class='fas fa-edit'></i> Update</a>
-                 <a class='btn btn-danger' href='index.php?op=delete&id=$value[product_id]'><i class='fas fa-trash-alt'></i> Delete</a>";
+                "<a class='btn btn-primary' href='index.php?op=read&id=$value[EAN]'><i class='fas fa-book'></i> Read</a>
+                 <a class='btn btn-success' href='index.php?op=update&id=$value[EAN]'><i class='fas fa-edit'></i> Update</a>
+                 <a class='btn btn-danger' href='index.php?op=delete&id=$value[EAN]'><i class='fas fa-trash-alt'></i> Delete</a>";
         }
         return $array;
     }
