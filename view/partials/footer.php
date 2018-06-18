@@ -1,28 +1,28 @@
 
     <!-- Footer -->
-<div class="footer-cont container-fluid LightSeaGreen">
+<div class="footer-cont container-fluid LightSeaGreen text-white">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3 mb-4">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" href="index.php">Home</span></a>
+                <li class="nav-item text-white">
+                    <a class="nav-link text-white" href="index.php">Home</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?op=allProducts">Shop</a>
+                    <a class="nav-link text-white" href="index.php?op=allProducts">Shop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?op=contact">Contact</a>
+                    <a class="nav-link text-white" href="index.php?op=contact">Contact</a>
                 </li>
             </ul>
         </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mt-3 mb-4">
             <div class="footer-title"><strong>Contact</strong></div>
             <div>Multiversum
             <br>1861 jan pieterszoon coenstraat<br>
-            </i><a id="footer_widget_link_1" href="mailto:post@eldermans-geerts.nl" target="_top">jack.jones@multiversum.com</a><br>
-            <a id="footer_widget_link_2" href="tel:(656)-976-4980">(656)-976-4980</a></div>
+        </i><a id="footer_widget_link_1" class="text-white" href="mailto:post@eldermans-geerts.nl" target="_top">jack.jones@multiversum.com</a><br>
+            <a id="footer_widget_link_2" class="text-white" href="tel:(656)-976-4980">(656)-976-4980</a></div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 float-right mt-3 mb-4">
             <ul class="social-ul">
                 <li><a href="?op=contact" class="pr-1"><i class="fab fa-facebook-square" aria-hidden="true"></i></a></li>
                 <li><a href="?op=contact" class="pr-1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
