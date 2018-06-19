@@ -94,6 +94,7 @@ class productsLogic
     //     throw $e;
     //   }
     // }
+
     public function totalRows()
     {
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
@@ -260,23 +261,25 @@ class productsLogic
 
         $detail .= "</div>
                     <a class='carousel-control-prev text-black' href='#carouselExampleIndicators' role='button' data-slide='prev'>
-                        <span class='carousel-control-prev-icon bg-secondary ' aria-hidden='true'></span>
+                        <span class='carousel-control-prev-icon  ' aria-hidden='true'></span>
                         <span class='sr-only '>Previous</span>
                     </a>
                     <a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
-                         <span class='carousel-control-next-icon bg-secondary' aria-hidden='true'></span>
+                         <span class='carousel-control-next-icon' aria-hidden='true'></span>
                          <span class='sr-only'>Next</span>
                      </a>
                      </div></div>
-
                      <div class='card-footer'>
-                        <a   href=\"#\" class=\"btn btn-success\">Winkelwagen</a>
-                        <input class='float-right' type='number' value='' size='4'>
+                        <span class='float-left mr-1'>aantal</span><input class='float-left' type='number' value='' >
+                         <a   href=\"#\" class='float-right btn btn-success'>Winkelwagen</a>
+
+        
                      </div>
                      ";
 
         return $detail;
     }
+
 }
 
 
