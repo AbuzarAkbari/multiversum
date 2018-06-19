@@ -23,7 +23,7 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Totaal</span>
-              <strong>$99</strong>
+              <strong><?php $_GET['price'] ?></strong>
             </li>
           </ul>
         </div>
