@@ -1,7 +1,8 @@
-<?php require_once 'CookieHandler.php';
+<?php
+require_once 'CookieHandler.php';
 require_once 'productsLogic.php';
 
-class shoppingCartLogic
+class ShoppingCartLogic
 {
     public $cookiehandler;
 
@@ -33,7 +34,7 @@ class shoppingCartLogic
         $products = [];
 
         foreach ($this->cookieHandler->data as $ean => $amount) {
-            $product = $this->product->readProductImg($ean);
+            $product = $this->product->createCarouselImage($ean);
             $product["amount"] = $amount;
             $products[] = $product;
         }

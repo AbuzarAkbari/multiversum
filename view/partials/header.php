@@ -51,7 +51,7 @@
             <button class="btn" type="button"><i class="fas fa-search"></i></button>
           </div>
         </div>
-      <a href="index.php?op=shop" type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></a>
+      <a href="index.php?op=cart" type="button" class="btn madison text-white mt-2"><i class="fas fa-shopping-cart"></i></a>
       </form>
     </div>
 </nav>
