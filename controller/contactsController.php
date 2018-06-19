@@ -58,9 +58,9 @@ class ContactsController{
     public function collectCreateContact()
     {
         if (isset($_POST['send'])) {
-            $create = $this->productsLogic->createContact($_POST['EAN'], $_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
-            , $_POST['detail'], $_POST['connection'], $_POST['brand']);
-            $this->collectReadContact($create);
+            $create = $this->productsLogic->createContact($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+            , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN']);
+            $this->productsLogic->readAdminProducts();
         } else {
             $form = $this->productsLogic->createForm();
             include 'view/form.php';

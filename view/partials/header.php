@@ -26,7 +26,7 @@
         <a class="navbar-bran " href="index.php" style='text-decoration: none;'>
           <img width="90" src="view/assets/images/logo_test.svg" alt="logo">
         <span class='text-white' >Multiversum</span>
-          
+
         </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

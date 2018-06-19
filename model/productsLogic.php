@@ -9,10 +9,11 @@ class productsLogic
         $this->DataHandler = new DataHandler("mysql", "localhost", "multiversum", "root", "");
     }
 
-    public function createContact($code, $supplier_id, $product_name, $price, $other_product_details)
+    public function createContact($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         try {
-            return $this->DataHandler->CreateData("INSERT INTO products (product_type_code, supplier_id, product_name, price, other_product_details) VALUES ('$code','$supplier_id', '$product_name', '$price','$other_product_details')");
+            return $this->DataHandler->CreateData("INSERT INTO products (price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
+            VALUES ('$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -273,7 +274,7 @@ class productsLogic
                         <span class='float-left mr-1'>aantal</span><input class='float-left' type='number' value='' >
                          <a   href=\"#\" class='float-right btn btn-success'>Winkelwagen</a>
 
-        
+
                      </div>
                      ";
 
