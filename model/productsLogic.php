@@ -28,6 +28,15 @@ class productsLogic
         }
     }
 
+    public function FindData($id)
+    {
+        try {
+            return $this->DataHandler->ReadData("SELECT product_name as 'Product naam' ,price as 'Prijs' FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE EAN = '$id'");
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
+
     public function searchProducts($search)
     {
         $offset = isset($_GET['page']) ? ($_GET['page'] * 6) : 0;
@@ -81,20 +90,20 @@ class productsLogic
         }
     }
 
-    // function readAdminProducts(){
-    //   try {
-    //
-    //       $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
-    //
-    //       foreach ($data as $key => $value) {
-    //           $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
-    //   }
-    //       return $data;
-    //
-    //   } catch (Exception $e){
-    //     throw $e;
-    //   }
-    // }
+//     function readAdminProducts(){
+//       try {
+//
+//           $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
+//
+//           foreach ($data as $key => $value) {
+//               $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
+//       }
+//           return $data;
+//
+//       } catch (Exception $e){
+//         throw $e;
+//       }
+//     }
 
     public function totalRows()
     {
@@ -241,8 +250,8 @@ class productsLogic
                         <div class='card-footer'>
                         <p class='card-text'>
                             <small>
-                            <a href='index.php?op=addToCart&id=$value[EAN]' type='button' class='btn MoonYellow'>Kopen</a>
-                            <a type='button' href='index.php?op=read&id=$value[EAN]' class='btn text-dark LightSeaGreen'>Lees meer</a>
+                            <a href='index.php?op=addToCart&id=$value[EAN]' type='button' class='btn MoonYellow text-white'>Kopen</a>
+                            <a type='button' href='index.php?op=read&id=$value[EAN]' class='btn text-white LightSeaGreen'>Lees meer</a>
                             </small></p>
                         </div>
                         </div>
@@ -288,8 +297,11 @@ class productsLogic
                      </a>
                      </div></div>
                      <div class='card-footer'>
-                        <span class='float-left mr-1'>aantal</span><input class='float-left' type='number' value='' >
-                         <a   href=\"#\" class='float-right btn btn-success'>Winkelwagen</a>
+                     <form method='post' action=''>
+                        <span class='float-left mr-1'>aantal</span><input class='float-left' name='amount' id='amount' type='number' >
+                        <input name='EAN' type='hidden' value='$_GET[id]'>
+                         <a href='index.php?op=addToCart&id=$_GET[id]' class='float-right LightSeaGreen btn btn-success'>Winkelwagen</a>
+                    </form>
 
 
                      </div>

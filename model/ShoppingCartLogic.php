@@ -34,8 +34,8 @@ class ShoppingCartLogic
         $products = [];
 
         foreach ($this->cookieHandler->data as $ean => $amount) {
-            $product = $this->product->createCarouselImage($ean);
-            $product["amount"] = $amount;
+            $product = $this->product->FindData($ean)[0];
+            $product["Aantal"] = $amount;
             $products[] = $product;
         }
 
