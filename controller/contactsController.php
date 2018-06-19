@@ -68,7 +68,8 @@ class ContactsController{
     }
 
     public function collectAddToCart() {
-        $this->cartLogic->addProductToCart($_GET["id"], isset($_GET["amount"]) ? $_GET["amount"] : 1);
+        var_dump($_SERVER);
+        $this->cartLogic->addProductToCart($_REQUEST["id"], isset($_REQUEST["amount"]) ? $_REQUEST["amount"] : 1);
         // $table = $this->productsLogic->printTable($products);     
         $this->collectCart();   
     }

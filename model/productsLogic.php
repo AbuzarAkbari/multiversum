@@ -250,8 +250,8 @@ class productsLogic
                         <div class='card-footer'>
                         <p class='card-text'>
                             <small>
-                            <a href='index.php?op=addToCart&id=$value[EAN]' type='button' class='btn MoonYellow'>Kopen</a>
-                            <a type='button' href='index.php?op=read&id=$value[EAN]' class='btn text-dark LightSeaGreen'>Lees meer</a>
+                            <a href='index.php?op=addToCart&id=$value[EAN]' type='button' class='btn MoonYellow text-white'>Kopen</a>
+                            <a type='button' href='index.php?op=read&id=$value[EAN]' class='btn text-white LightSeaGreen'>Lees meer</a>
                             </small></p>
                         </div>
                         </div>
@@ -297,8 +297,11 @@ class productsLogic
                      </a>
                      </div></div>
                      <div class='card-footer'>
-                        <span class='float-left mr-1'>aantal</span><input class='float-left' type='number' value='' >
-                         <a href='index.php?op=addToCart&id=$_GET[id]' class='float-right btn btn-success'>Winkelwagen</a>
+                     <form method='post' action=''>
+                        <span class='float-left mr-1'>aantal</span><input class='float-left' name='amount' id='amount' type='number' >
+                        <input name='EAN' type='hidden' value='$_GET[id]'>
+                         <a href='index.php?op=addToCart&id=$_GET[id]' class='float-right LightSeaGreen btn btn-success'>Winkelwagen</a>
+                    </form>
 
 
                      </div>
