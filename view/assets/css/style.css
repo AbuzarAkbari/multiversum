@@ -99,6 +99,7 @@ body {
 }
 .social-ul li a{
     font-size: 21px;
+    color: #fff;
 }
 .social-ul li a:hover{
     color: #2c3e50;
