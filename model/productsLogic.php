@@ -41,12 +41,12 @@ class productsLogic
     public function readProduct($id)
     {
         try {
-            return $this->DataHandler->ReadData("SELECT platform,resolution,refresh_rate,function,color,accessoires,EAN,connection,brand,detail FROM products WHERE EAN = '$id'");
+            return $this->DataHandler->ReadData("SELECT platform,resolution,refresh_rate,function,color,accessoires,EAN,connection,brand,detail,price,product_name FROM products WHERE EAN = '$id'");
         } catch (Exeption $e) {
             throw $e;
         }
     }
-
+/**/
     public function readProducts()
     {
 
@@ -153,7 +153,7 @@ class productsLogic
                 }
 
                 $form .= "<label class='form-control-label'>" . ucfirst(str_replace("_", " ", $value['Field'])) . "</label>";
-                $form .= "<input class='form-control col-lg-12 ' type='$type' max='$number' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
+                $form .= "<input class='form-control col-lg-12' type='$type' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
             }
         }
         $form .= "<input class='btn btn-primary my-3 mr-1' type='submit' name='send'>";
