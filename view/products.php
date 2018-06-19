@@ -13,12 +13,20 @@
                 <ul class="pagination">
                     <?php
 
-                            for ($i = 0; $i < $pages; $i++) {
-                                $get = array_merge($_GET, []);
-                                $get["page"] = $i;
-                                $get = http_build_query($get);
-                                echo "<li class='page-item'><a class='page-link'href='index.php?$get'>" . ($i + 1) . "</a></li>";
-                            }
+
+
+                    if (empty($pages)==FAlSE){
+                        for ($i = 0; $i < $pages; $i++) {
+                            $get = array_merge($_GET, []);
+                            $get["page"] = $i;
+                            $get = http_build_query($get);
+                            echo "<li class='page-item'><a class='page-link'href='index.php?$get'>" . ($i + 1) . "</a></li>";
+                        }
+                    }else{
+                       echo "<a href='index.php?op=allProducts' class='btn madison mx-auto text-white'>Toon Alle producten</a>";
+                    }
+
+
 
                     ?>
                 </ul>

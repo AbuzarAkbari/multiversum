@@ -67,6 +67,7 @@
 
             </tbody>
         </table>
+        <a href="index.php?op=paying">Betalen</a>
     </div>
     </div>
 </div>

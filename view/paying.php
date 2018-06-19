@@ -2,11 +2,10 @@
 
   <body>
 
-    <div class="container">
+    <div class="container mb-5">
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>Betalings pagina</h2>
-        <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus deleniti cupiditate est velit doloribus dolores temporibus, totam illum, pariatur qui animi facere debitis, necessitatibus aut quo eius. Deserunt, impedit dignissimos.</p>
       </div>
 
       <div class="row">
@@ -41,20 +40,9 @@
                 <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="username">Username</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="username" placeholder="" required>
-              </div>
-            </div>
 
             <div class="mb-3">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="">
-            </div>
-
-            <div class="mb-3">
-              <label for="address">Adres</label>
+              <label for="address">Postcode</label>
               <input type="text" class="form-control" id="address" placeholder="" required>
             </div>
 
@@ -68,13 +56,13 @@
                 </select>
               </div>
               <div class="col-md-4 mb-3">
-              <label for="adres">Adres</label>
+              <label for="adres">Straat</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="adres" placeholder="" required>
+                <input type="text" class="form-control" id="straat" placeholder="" required>
             </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="zip">Postcode</label>
+                <label for="zip">huisnummer</label>
                 <input type="text" class="form-control" id="zip" placeholder="" required>
               </div>
             </div>
@@ -89,7 +77,7 @@
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="Naamkaart">Naam op het kaart</label>
+                <label for="Naamkaart">Eigenaar van de Pas</label>
                 <input type="text" class="form-control" id="Naamkaart" placeholder="" required>
                 <small class="text-muted">wat er op je kaart staat</small>
               </div>
@@ -98,17 +86,10 @@
                 <input type="text" class="form-control" id="IBAN" placeholder="" required>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="verloopdatum">Verloopdatum</label>
-                <input type="text" class="form-control" id="verloopdatum" placeholder="" required>
-              </div>
-            </div>
             <hr class="mb-4">
             <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
           </form>
         </div>
       </div>
     </div>
-    <?php include "partials/footer.php"; ?>
 

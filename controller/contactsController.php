@@ -22,6 +22,9 @@ class ContactsController{
                 case "shop";
                     $this->shopping();
                     break;
+                case "paying";
+                    $this->paying();
+                    break;
                 case "read";
                     $this->collectImage();
                     break;
@@ -67,7 +70,12 @@ class ContactsController{
         $search = $this->productsLogic->searchProducts($_REQUEST['w']);
         $result = $this->productsLogic->printDiv($search);
 
+
         include 'view/products.php';
+    }
+
+    public function paying(){
+        include 'view/paying.php';
     }
 
     public function shopping()
