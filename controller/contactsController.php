@@ -58,7 +58,8 @@ class ContactsController{
     public function collectCreateContact()
     {
         if (isset($_POST['send'])) {
-            $create = $this->productsLogic->createContact($_POST['product_type_code'], $_POST['supplier_id'], $_POST['product_name'], $_POST['price'], $_POST['other_product_details']);
+            $create = $this->productsLogic->createContact($_POST['EAN'], $_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+            , $_POST['detail'], $_POST['connection'], $_POST['brand']);
             $this->collectReadContact($create);
         } else {
             $form = $this->productsLogic->createForm();
@@ -131,8 +132,9 @@ class ContactsController{
     public function collectUpdateContact()
     {
         if (isset($_POST['send'])) {
-            $this->productsLogic->updateContact($_POST['product_type_code'], $_POST['supplier_id'], $_POST['product_name'], $_POST['price'], $_POST['other_product_details'], $_GET['id']);
-            $this->collectReadContact($_GET['id']);
+            $this->productsLogic->updateContact($_POST['EAN'], $_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+            , $_POST['detail'], $_POST['connection'], $_POST['brand']);
+            $this->collectReadContact($_GET['EAN']);
         } else {
             $dataProduct = $this->productsLogic->readProduct($_GET['id'])[0];
             $form = $this->productsLogic->createForm($dataProduct);
