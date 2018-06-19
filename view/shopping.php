@@ -67,7 +67,7 @@
 
             </tbody>
         </table>
-        <a href="index.php?op=paying">Betalen</a>
+        <a class="btn MoonYellow text-white mb-3" href="index.php?op=paying">Betalen</a>
     </div>
     </div>
 </div>
