@@ -119,7 +119,7 @@ class productsLogic
 
     public function deleteContact($id)
     {
-        return $this->DataHandler->DeleteData("DELETE FROM products WHERE EAN = $id");
+        return $this->DataHandler->DeleteData("DELETE FROM products WHERE `EAN` = '$id'");
     }
 
     function pagination($perPage = 6)
