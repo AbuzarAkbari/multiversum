@@ -99,10 +99,11 @@ class productsLogic
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-    public function updateContact($EAN, $price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand)
+    public function updateContact($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
-        return $this->DataHandler->updateData("UPDATE products SET `price` = '$price', `platform` = '$product_name', `resolution` = $resolution, `refresh_rate` = '$refresh_rate', `function` = '$function', `color` = '$color', `accessoires` = '$accessoires'
-            , `product_name` = '$product_name', `detail` = '$detail', `connection` = '$connection', `brand` = '$brand' WHERE EAN = 'EAN'");
+        return $this->DataHandler->updateData("UPDATE products SET `price` = '$price'
+            ,`platform` = '$platform',`resolution` = '$resolution',`refresh_rate` = '$refresh_rate',`function` = '$function',`color` = '$color',`accessoires` = '$accessoires',`product_name` = '$product_name',`detail` = '$detail'
+            ,`connection` = '$connection',`brand` = '$brand' WHERE `EAN` = '$EAN'");
     }
 
     public function deleteContact($id)

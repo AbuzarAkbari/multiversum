@@ -124,9 +124,9 @@ class ContactsController{
     public function collectUpdateContact()
     {
         if (isset($_POST['send'])) {
-            $this->productsLogic->updateContact($_POST['EAN'], $_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
-            , $_POST['detail'], $_POST['connection'], $_POST['brand']);
-            $this->collectReadContact($_GET['EAN']);
+            $this->productsLogic->updateContact($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+            , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_GET['id']);
+            $this->productsLogic->readProduct($_GET['id']);
         } else {
             $dataProduct = $this->productsLogic->readProduct($_GET['id'])[0];
             $form = $this->productsLogic->createForm($dataProduct);
