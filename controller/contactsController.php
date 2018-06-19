@@ -1,14 +1,12 @@
 <?php
 require './model/productsLogic.php';
+require './model/ShoppingCartLogic.php';
 
 class ContactsController{
 
     public function __construct(){
         $this->productsLogic = new productsLogic();
-    }
-
-    public function __destruct()
-    {
+        $this->cartLogic = new ShoppingCartLogic();
     }
 
     public function handleRequest()
@@ -40,11 +38,17 @@ class ContactsController{
                 case "allProducts" :
                     $this->collectAllProducts();
                     break;
-                case "contact" :
+                case "contact":
                     $this->collectContact();
                     break;
                 case "admin" :
                     $this->collectAdmin();
+                    break;
+                case "addToCart" :
+                    $this->collectAddToCart();
+                    break;
+                case "cart" :
+                    $this->collectCart();
                     break;
                 default:
                     $this->collectReadHome();
@@ -53,6 +57,18 @@ class ContactsController{
         } catch (Exception $e) {
             throw $e;
         }
+    }
+
+    public function collectCart() {
+        $products = $this->cartLogic->readCart();
+
+        $table = $this->productsLogic->printTable($products);
+//
+        include "view/shopping.php";
+    }
+
+    public function collectAddToCart() {
+        $this->cartLogic->addProductToCart($_GET["id"], isset($_GET["amount"]) ? $_GET["amount"] : 1);
     }
 
     public function collectCreateContact()

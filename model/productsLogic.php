@@ -188,6 +188,23 @@ class productsLogic
         $table .= "</table>";
         return $table;
     }
+////
+//    public function printCart($array)
+//    {
+//        $table = "<table class='table'>";
+//
+//        foreach ($array as $key => $value) {
+//            $table .= "<thead class='thead-inverse'><tr>";
+//
+//            foreach ($value as $k => $v) {
+//                $table .= "<th>" . $k . "</th>";
+//            }
+//            break;
+//        }
+//
+//        $table .= "</table>";
+//        return $table;
+//    }
 
     public function printDetailTable($array){
         $table = "<table class='table table-responsive'>";
@@ -224,7 +241,7 @@ class productsLogic
                         <div class='card-footer'>
                         <p class='card-text'>
                             <small>
-                            <a type='button' class='btn MoonYellow'>Kopen</a>
+                            <a href='index.php?op=addToCart&id=$value[EAN]' type='button' class='btn MoonYellow'>Kopen</a>
                             <a type='button' href='index.php?op=read&id=$value[EAN]' class='btn text-dark LightSeaGreen'>Lees meer</a>
                             </small></p>
                         </div>

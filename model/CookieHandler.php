@@ -1,10 +1,7 @@
 <?php
 class CookieHandler
 {
-    /**
-     * @var string | name of cookie
-     * @access public
-     */
+
     public $name;
     public $data = [];
 
