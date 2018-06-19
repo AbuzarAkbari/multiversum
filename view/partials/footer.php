@@ -1,9 +1,9 @@
 
     <!-- Footer -->
 <div class="footer-cont container-fluid LightSeaGreen text-white">
-    <div class="row">
+    <div class="row footer-row-row">
         <div class="col-md-4 mt-3 mb-4">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto footer-ul">
                 <li class="nav-item text-white">
                     <a class="nav-link text-white" href="index.php">Home</span></a>
                 </li>

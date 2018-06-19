@@ -99,9 +99,10 @@ class productsLogic
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-    public function updateContact($code, $supplier_id, $product_name, $price, $other_product_details, $id)
+    public function updateContact($EAN, $price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand)
     {
-        return $this->DataHandler->updateData("UPDATE products SET `product_type_code` = '$code', `supplier_id` = '$supplier_id', `product_name` = '$product_name', `price` = $price, `other_product_details` = '$other_product_details' WHERE EAN = '$id'");
+        return $this->DataHandler->updateData("UPDATE products SET `price` = '$price', `platform` = '$product_name', `resolution` = $resolution, `refresh_rate` = '$refresh_rate', `function` = '$function', `color` = '$color', `accessoires` = '$accessoires'
+            , `product_name` = '$product_name', `detail` = '$detail', `connection` = '$connection', `brand` = '$brand' WHERE EAN = 'EAN'");
     }
 
     public function deleteContact($id)
@@ -153,7 +154,7 @@ class productsLogic
                 }
 
                 $form .= "<label class='form-control-label'>" . ucfirst(str_replace("_", " ", $value['Field'])) . "</label>";
-                $form .= "<input class='form-control col-lg-12' type='$type' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
+                $form .= "<input class='form-control col-lg-12' type='text' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
             }
         }
         $form .= "<input class='btn btn-primary my-3 mr-1' type='submit' name='send'>";

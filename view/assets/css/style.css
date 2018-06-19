@@ -104,6 +104,6 @@ body {
 .social-ul li a:hover{
     color: #2c3e50;
 }
-/* .footer-cont{
-    background-color: red;
-} */
+.footer-ul > li > a:hover{
+    color: #2c3e50;
+}
