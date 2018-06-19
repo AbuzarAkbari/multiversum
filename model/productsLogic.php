@@ -29,7 +29,7 @@ class productsLogic
 
     public function searchProducts($search)
     {
-        $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
+        $offset = isset($_GET['page']) ? ($_GET['page'] * 6) : 0;
 
         try {
             return $this->DataHandler->ReadData("SELECT * FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE product_name LIKE '%$search%' OR detail LIKE '%$search%' GROUP BY `photos`.Products_EAN LIMIT 5 OFFSET $offset;");
