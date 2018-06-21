@@ -10,6 +10,7 @@
                     <div class="container">
                         <div class="carousel-caption text-left madison-text">
                             <h1> Sony PlayStation </h1>
+                            <h1>€ 229.00</h1>
                             <p><a class="btn btn-lg btn-primary" href="index.php?op=read&id=2750057115988" role="button">Kopen</a></p>
                         </div>
                     </div>
@@ -18,7 +19,8 @@
                     <div class="container">
                         <div class="carousel-caption text-left madison-text ">
                             <h1> Samsung Gear </h1>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Kopen</a></p>
+                            <h1>€ 378,65</h1>
+                            <p><a class="btn btn-lg btn-primary" href="index.php?op=read&id=2750057115988" role="button">Lees Meer</a></p>
                         </div>
                     </div>
                 </div>

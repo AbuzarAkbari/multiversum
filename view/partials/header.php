@@ -23,24 +23,30 @@
   </head>
 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top LightSeaGreen" >
-        <a class="navbar-bran " href="index.php" style='text-decoration: none;'>
-          <img width="90" src="view/assets/images/logo_test.svg" alt="logo">
-        <span class='text-white' >Multiversum</span>
-
-        </a>
-
+ 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon">
+        </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="index.php">
+                    <img height="30"  src="view/assets/images/logo_test.svg" alt="logo">                                        
+                </a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="index.php">
+                    <span class='text-white' >Multiversum</span>                
+                </a>
+            </li>
+            <li class="nav-item mr-3">
                 <a class="nav-link" href="index.php">Home</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-3">
                 <a class="nav-link" href="index.php?op=allProducts">Shop</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mr-3">
                 <a class="nav-link" href="index.php?op=contact">Contact</a>
             </li>
         </ul>

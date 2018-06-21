@@ -68,7 +68,6 @@ class ContactsController{
     }
 
     public function collectAddToCart() {
-        var_dump($_SERVER);
         $this->cartLogic->addProductToCart($_REQUEST["id"], isset($_REQUEST["amount"]) ? $_REQUEST["amount"] : 1);
         // $table = $this->productsLogic->printTable($products);     
         $this->collectCart();   
@@ -79,7 +78,7 @@ class ContactsController{
         if (isset($_POST['send'])) {
             $create = $this->productsLogic->createContact($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
             , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN']);
-            header('Location: http://localhost/git/multiversum/index.php?op=admin');
+            // include 'index.php?op=admin';
         } else {
             $form = $this->productsLogic->createForm();
             include 'view/form.php';
@@ -157,7 +156,7 @@ class ContactsController{
         if (isset($_POST['send'])) {
             $this->productsLogic->updateContact($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
             , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_GET['id']);
-            header('Location: http://localhost/git/multiversum/index.php?op=admin');
+            // include 'index.php?op=admin';
         } else {
             $dataProduct = $this->productsLogic->readProduct($_GET['id'])[0];
             $form = $this->productsLogic->createForm($dataProduct);
@@ -168,7 +167,8 @@ class ContactsController{
     public function collectDeleteContact()
     {
         $delete = $this->productsLogic->deleteContact($_GET['id']);
-        header('Location: http://localhost/git/multiversum/index.php?op=admin');
+        // include 'index.php?op=admin';
+        
     }
 
     public function collectAllProducts()

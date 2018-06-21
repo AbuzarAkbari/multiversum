@@ -56,7 +56,8 @@ class productsLogic
             throw $e;
         }
     }
-/**/
+
+    /**/
     public function readProducts()
     {
 
@@ -79,7 +80,8 @@ class productsLogic
         }
     }
 
-    public function readAdminProducts() {
+    public function readAdminProducts()
+    {
 
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
@@ -139,7 +141,7 @@ class productsLogic
     {
         $form = "
         <div class='my-5 container col-md-4'>
-        <form method='post'>";
+        <form method='post' >";
         $data = $this->describeProduct();
         foreach ($data as $key => $value) {
             if ($value['Extra'] != "auto_increment") {
@@ -215,7 +217,8 @@ class productsLogic
 //        return $table;
 //    }
 
-    public function printDetailTable($array){
+    public function printDetailTable($array)
+    {
         $table = "<table class='table table-responsive'>";
 
         foreach ($array as $k => $v) {
@@ -234,7 +237,7 @@ class productsLogic
     public function printDiv($array)
     {
 
-        $table="";
+        $table = "";
         foreach ($array as $key => $value) {
 
 
@@ -243,9 +246,9 @@ class productsLogic
                         <a href='index.php?op=read&id=$value[EAN]'><img class='card-img'  src='$value[image_path]' alt='Card image'></a>
                         <div class='card-body'>
                             <a href='index.php?op=read&id=$value[EAN]' class='card-title'>$value[product_name]</a>
-                            <p class='card-text'>". substr($value['detail'],0,90). "..." .
-                            "</p>
-                            <h5 class='card-title'>€ ". str_replace(".", ",", $value["price"]) ."</h5>
+                            <p class='card-text'>" . substr($value['detail'], 0, 90) . "..." .
+                "</p>
+                            <h5 class='card-title'>€ " . str_replace(".", ",", $value["price"]) . "</h5>
                         </div>
                         <div class='card-footer'>
                         <p class='card-text'>
@@ -297,10 +300,10 @@ class productsLogic
                      </a>
                      </div></div>
                      <div class='card-footer'>
-                     <form method='post' action=''>
+                     <form method='post' action='index.php?op=addToCart'>
                         <span class='float-left mr-1'>aantal</span><input class='float-left' name='amount' id='amount' type='number' >
-                        <input name='EAN' type='hidden' value='$_GET[id]'>
-                         <a href='index.php?op=addToCart&id=$_GET[id]' class='float-right LightSeaGreen btn btn-success'>Winkelwagen</a>
+                        <input name='id' type='hidden' value='$_GET[id]'>
+                         <button href='index.php?op=addToCart&id=$_GET[id]' class='float-right LightSeaGreen btn btn-success'>Winkelwagen</button>
                     </form>
 
 
@@ -311,8 +314,6 @@ class productsLogic
     }
 
 }
-
-
 
 
 ?>
