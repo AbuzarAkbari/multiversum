@@ -31,7 +31,7 @@ class productsLogic
     public function FindData($id)
     {
         try {
-            return $this->DataHandler->ReadData("SELECT product_name as 'Product naam' ,price as 'Prijs' FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE EAN = '$id'");
+            return $this->DataHandler->ReadData("SELECT EAN , image_path as 'Image', product_name as 'Product' ,price as 'Prijs' FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE EAN = '$id'");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -202,23 +202,26 @@ class productsLogic
         $table .= "</table>";
         return $table;
     }
-////
-//    public function printCart($array)
-//    {
-//        $table = "<table class='table'>";
-//
-//        foreach ($array as $key => $value) {
-//            $table .= "<thead class='thead-inverse'><tr>";
-//
-//            foreach ($value as $k => $v) {
-//                $table .= "<th>" . $k . "</th>";
-//            }
-//            break;
-//        }
-//
-//        $table .= "</table>";
-//        return $table;
-//    }
+    // $table.="<th>  </th> <th></th> <th></th> <th></th>";
+
+   public function printCart($array)
+   {
+
+    $table="";
+
+       foreach ($array as $key => $value) {
+       $table.= "<table class='table' >";
+           
+           $table .= "<td><img src='$value[Image]' height='50'></td>
+           <td>$value[Product]</td>
+           <td> €  " . $value['Prijs'] * $value['Aantal']  . " </td>
+           <td><input type='number' style='width: 40px' value='$value[Aantal]'></td>
+           <td><a class='btn btn-danger' href='index.php?op=deleteCart&id=$value[EAN]'><i class='fas fa-trash-alt'></i> Delete</a></td>";
+       $table .= "</table>";
+       }
+
+       return $table;
+   }
 
     public function printDetailTable($array)
     {

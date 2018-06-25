@@ -32,7 +32,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item mr-3">
                 <a class="nav-link" href="index.php">
-                    <img height="30"  src="view/assets/images/logo_test.svg" alt="logo">                                        
+                    <img height="30"  src="view/assets/images/logo.svg" alt="logo">                                        
                 </a>
             </li>
             <li class="nav-item mr-3">

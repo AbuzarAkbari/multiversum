@@ -47,6 +47,9 @@ class ContactsController{
                 case "addToCart" :
                     $this->collectAddToCart();
                     break;
+                case "deleteCart" :
+                    $this->deleteCart();
+                    break;
                 case "cart" :
                     $this->collectCart();
                     break;
@@ -62,9 +65,16 @@ class ContactsController{
     public function collectCart() {
         $products = $this->cartLogic->readCart();
 
-        $table = $this->productsLogic->printTable($products);
+
+        $table = $this->productsLogic->printCart($products);
 //
         include "view/shopping.php";
+    }
+
+    public function deleteCart() {
+        $products = $this->cartLogic->deleteProductInCart($_REQUEST["id"]);
+//
+        $this->collectCart();   
     }
 
     public function collectAddToCart() {
