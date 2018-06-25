@@ -132,7 +132,8 @@ class ContactsController{
     {
         if (isset($_POST['send'])) {
             $create = $this->productsLogic->createProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
-                , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN']);
+                , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN'], $_POST['image_path']);
+
             $host  = $_SERVER['HTTP_HOST'];
             $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
             $extra = 'index.php?op=admin';

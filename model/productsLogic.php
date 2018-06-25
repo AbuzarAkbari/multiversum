@@ -12,8 +12,8 @@ class productsLogic
     public function createProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         try {
-            return $this->DataHandler->CreateData("INSERT INTO products (price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
-            VALUES ('$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
+            return $this->DataHandler->CreateData("INSERT INTO products INNER JOIN photos (image_path,price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
+            VALUES ('$image_path ,$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -86,35 +86,20 @@ class productsLogic
         $offset = isset($_GET['page']) ? ($_GET['page'] * 5) : 0;
 
         try {
-            return $this->DataHandler->ReadData("SELECT EAN,price,platform,product_name,color,brand FROM `products` LIMIT 5 OFFSET $offset");
+            return $this->DataHandler->ReadData("SELECT image_path,EAN,price,platform,product_name,color,brand FROM `products` INNER JOIN `photos`  LIMIT 5 OFFSET $offset");
         } catch (Exeption $e) {
             throw $e;
         }
     }
-
-//     function readAdminProducts(){
-//       try {
-//
-//           $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
-//
-//           foreach ($data as $key => $value) {
-//               $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
-//       }
-//           return $data;
-//
-//       } catch (Exception $e){
-//         throw $e;
-//       }
-//     }
 
     public function totalRows()
     {
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-    public function updateProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
+    public function updateProduct($image_path, $price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
-        return $this->DataHandler->updateData("UPDATE products SET `price` = '$price'
+        return $this->DataHandler->updateData("UPDATE products INNER JOIN photos SET `image_path` = '$image_path', `price` = '$price'
             ,`platform` = '$platform',`resolution` = '$resolution',`refresh_rate` = '$refresh_rate',`function` = '$function',`color` = '$color',`accessoires` = '$accessoires',`product_name` = '$product_name',`detail` = '$detail'
             ,`connection` = '$connection',`brand` = '$brand' WHERE `EAN` = '$EAN'");
     }
@@ -315,6 +300,14 @@ class productsLogic
 
         return $detail;
     }
+
+//UPDATE ProductReviews
+//SET    ProductReviews.status = '0'
+//FROM   ProductReviews
+//INNER JOIN products
+//ON ProductReviews.pid = products.id
+//WHERE  ProductReviews.id = '17190'
+//AND products.shopkeeper = '89137'
 
 }
 
