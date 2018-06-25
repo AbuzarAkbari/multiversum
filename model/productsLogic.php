@@ -255,8 +255,6 @@ class productsLogic
               ";
         }
 
-        // Dit moet na index.php?op=read&id= $value[EAN]'
-
 
         return $table;
     }

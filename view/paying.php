@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Betallings adres</h4>
-          <form class="needs-validation" novalidate>
+          <form action="" class="needs-validation" novalidate>
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Voornaam</label>
