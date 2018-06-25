@@ -1,6 +1,6 @@
 <?php require_once 'DataHandler.php';
 
-class productsLogic
+class imageLogic
 {
     public $DataHandler;
 
@@ -91,22 +91,6 @@ class productsLogic
             throw $e;
         }
     }
-
-//     function readAdminProducts(){
-//       try {
-//
-//           $data = $this->DataHandler->ReadData("SELECT price,resolution,refresh_rate,color,brand FROM products LIMIT 5");
-//
-//           foreach ($data as $key => $value) {
-//               $data[$key]['price'] ="€ ".str_replace( ".", ",", $data[$key]['price']);
-//       }
-//           return $data;
-//
-//       } catch (Exception $e){
-//         throw $e;
-//       }
-//     }
-
     public function totalRows()
     {
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
@@ -141,7 +125,7 @@ class productsLogic
     {
         $form = "
         <div class='my-5 container col-md-4'>
-        <form enctype='multipart/form-data' method='post' action='./model/upload.php'>";
+        <form method='post' >";
         $data = $this->describeProduct();
         foreach ($data as $key => $value) {
             if ($value['Extra'] != "auto_increment") {
@@ -171,9 +155,6 @@ class productsLogic
                 $form .= "<input class='form-control col-lg-12' type='text' name='$value[Field]' value='" . ($dataProduct ? $dataProduct[$value['Field']] : "") . "'>";
             }
         }
-        $form .= "<label class='form-control-label col-md-12'>Selecteer uw foto:</label>";
-        $form .= "<input class='form-control-input col-md-12' type='file' name='upload' id='upload'>";
-
         $form .= "<input class='btn btn-primary my-3 mr-1' type='submit' name='send'>";
         $form .= "<a href='index.php?op=admin' class='btn btn-primary'>Terug</a>";
         $form .= "</form></div>";
@@ -202,24 +183,6 @@ class productsLogic
         $table .= "</table>";
         return $table;
     }
-////
-//    public function printCart($array)
-//    {
-//        $table = "<table class='table'>";
-//
-//        foreach ($array as $key => $value) {
-//            $table .= "<thead class='thead-inverse'><tr>";
-//
-//            foreach ($value as $k => $v) {
-//                $table .= "<th>" . $k . "</th>";
-//            }
-//            break;
-//        }
-//
-//        $table .= "</table>";
-//        return $table;
-//    }
-
     public function printDetailTable($array)
     {
         $table = "<table class='table table-responsive'>";
@@ -266,9 +229,6 @@ class productsLogic
 
               ";
         }
-
-        // Dit moet na index.php?op=read&id= $value[EAN]'
-
 
         return $table;
     }
@@ -317,6 +277,5 @@ class productsLogic
     }
 
 }
-
 
 ?>

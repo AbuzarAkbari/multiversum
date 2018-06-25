@@ -168,8 +168,6 @@ class ContactsController{
         $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         $extra = 'index.php?op=admin';
         header("Location: http://$host$uri/$extra");
-
-
     }
 
     public function collectAllProducts()
