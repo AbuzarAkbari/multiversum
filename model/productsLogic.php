@@ -9,7 +9,7 @@ class productsLogic
         $this->DataHandler = new DataHandler("mysql", "localhost", "multiversum", "root", "");
     }
 
-    public function createContact($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
+    public function createProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         try {
             return $this->DataHandler->CreateData("INSERT INTO products (price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
@@ -112,14 +112,14 @@ class productsLogic
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-    public function updateContact($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
+    public function updateProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         return $this->DataHandler->updateData("UPDATE products SET `price` = '$price'
             ,`platform` = '$platform',`resolution` = '$resolution',`refresh_rate` = '$refresh_rate',`function` = '$function',`color` = '$color',`accessoires` = '$accessoires',`product_name` = '$product_name',`detail` = '$detail'
             ,`connection` = '$connection',`brand` = '$brand' WHERE `EAN` = '$EAN'");
     }
 
-    public function deleteContact($id)
+    public function deleteProduct($id)
     {
         return $this->DataHandler->DeleteData("DELETE FROM products WHERE `EAN` = '$id'");
     }

@@ -15,7 +15,7 @@ class ContactsController{
         try {
             switch ($op) {
                 case "create";
-                    $this->collectCreateContact();
+                    $this->collectCreateProduct();
                     break;
                 case "shop";
                     $this->shopping();
@@ -27,13 +27,13 @@ class ContactsController{
                     $this->collectImage();
                     break;
                 case "update";
-                    $this->collectUpdateContact();
+                    $this->collectUpdateProduct();
                     break;
                 case "search";
                     $this->collectSearchProducts();
                     break;
                 case "delete";
-                    $this->collectDeleteContact();
+                    $this->collectDeleteProduct();
                     break;
                 case "allProducts" :
                     $this->collectAllProducts();
@@ -73,17 +73,6 @@ class ContactsController{
         $this->collectCart();   
     }
 
-    public function collectCreateContact()
-    {
-        if (isset($_POST['send'])) {
-            $create = $this->productsLogic->createContact($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
-            , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN']);
-            // include 'index.php?op=admin';
-        } else {
-            $form = $this->productsLogic->createForm();
-            include 'view/form.php';
-        }
-    }
 
     public function collectSearchProducts(){
         $search = $this->productsLogic->searchProducts($_REQUEST['w']);
@@ -127,17 +116,6 @@ class ContactsController{
 
         include 'view/home.php';
     }
-//     public function collectReadAdmin()
-//     {
-//         if (isset($_GET['id'])) {
-//        $contacts = $this->ContactsLogic->readContact($_GET['id']);
-//        $buttons = $this->createButtons($contacts);
-//        $a = $this->replace($buttons);
-//        $table = $this->createTable($a);
-//
-//         include 'view/admin.php';
-//
-// }}
 
     public function collectImage()
     {
@@ -150,13 +128,32 @@ class ContactsController{
 
     }
 
-
-    public function collectUpdateContact()
+    public function collectCreateProduct()
     {
         if (isset($_POST['send'])) {
-            $this->productsLogic->updateContact($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+            $create = $this->productsLogic->createProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+                , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN']);
+            $host  = $_SERVER['HTTP_HOST'];
+            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $extra = 'index.php?op=admin';
+            header("Location: http://$host$uri/$extra");
+
+        } else {
+            $form = $this->productsLogic->createForm();
+            include 'view/form.php';
+        }
+    }
+
+    public function collectUpdateProduct()
+    {
+        if (isset($_POST['send'])) {
+            $this->productsLogic->updateProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
             , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_GET['id']);
-            // include 'index.php?op=admin';
+            $host  = $_SERVER['HTTP_HOST'];
+            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $extra = 'index.php?op=admin';
+            header("Location: http://$host$uri/$extra");
+//          header('Location: http://localhost/git/multiversum/index.php?op=admin');            // include 'index.php?op=admin';
         } else {
             $dataProduct = $this->productsLogic->readProduct($_GET['id'])[0];
             $form = $this->productsLogic->createForm($dataProduct);
@@ -164,11 +161,15 @@ class ContactsController{
         }
     }
 
-    public function collectDeleteContact()
+    public function collectDeleteProduct()
     {
-        $delete = $this->productsLogic->deleteContact($_GET['id']);
-        // include 'index.php?op=admin';
-        
+        $delete = $this->productsLogic->deleteProduct($_GET['id']);
+        $host  = $_SERVER['HTTP_HOST'];
+        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $extra = 'index.php?op=admin';
+        header("Location: http://$host$uri/$extra");
+
+
     }
 
     public function collectAllProducts()
@@ -201,22 +202,6 @@ class ContactsController{
         }
         return $array;
     }
-    /**/
-    /**/
-    /**/
-    /*vanaf hier is alles test*/
-    /**/
-    /**/
-    /**/
-//     function createButtons($array){
-//
-// foreach($array as $key => $value){
-//
-//    $array[$key]["Action"] = " <a href='index.php?op=read&id=$value[supplier_id]'><button class='btn btn-primary'>read</button><a> <a href='index.php?op=update&id=$value[supplier_id]'><button class='btn btn-success'>Update</button><a>  <a href='index.php?op=delete&id=$value[supplier_id]'><button name='delete' value='delete' >Delete</button><a>";
-// }
-// return $array;
-// }
-
 }
 
 ?>
