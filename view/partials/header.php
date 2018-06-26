@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item mr-3">
-                <a class="nav-link" href="index.php">Home</span></a>
+                <a class="nav-link " href="index.php">Home</span></a>
             </li>
             <li class="nav-item mr-3">
                 <a class="nav-link" href="index.php?op=allProducts">Shop</a>

@@ -4,18 +4,11 @@ class productsLogic
 {
     public $DataHandler;
 
-    /**
-     * productsLogic constructor.
-     * with the database logins and database name
-     */
     public function __construct()
     {
         $this->DataHandler = new DataHandler("mysql", "localhost", "multiversum", "root", "");
     }
 
-    /**
-     * a insert sql that makes a new product
-     */
     public function createProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         try {
@@ -26,10 +19,6 @@ class productsLogic
         }
     }
 
-
-    /**
-     * a sql qeury that returns a image path (view/assets/images/example/example.png)
-     */
     public function createCarouselImage($id)
     {
         try {
@@ -39,10 +28,6 @@ class productsLogic
         }
     }
 
-
-    /**
-     * a sql qeury for the shopping cart what values it will return to put in the in shopping cart
-     */
     public function FindData($id)
     {
         try {
@@ -52,10 +37,7 @@ class productsLogic
         }
     }
 
-    /**
-     * sql qeury that puts the values from the checkout form
-     */
-    public function InsertOrder($firstname, $lastname, $straat, $country, $postcode, $iban, $huisnummer)
+    public function InsertOrder($firstname,$lastname,$straat,$country,$postcode,$iban,$huisnummer)
     {
         try {
             return $this->DataHandler->CreateData("INSERT INTO `orders`(`firstname`, `lastname`, `straat`, `country`, `postcode`, `iban`, `huisnummer`) 
@@ -65,9 +47,6 @@ class productsLogic
         }
     }
 
-    /**
-     * searches prodcuts and has puts a limit of 6 prodcuts and a offset that is given with a variable
-     */
     public function searchProducts($search)
     {
         $offset = isset($_GET['page']) ? ($_GET['page'] * 6) : 0;
@@ -79,9 +58,6 @@ class productsLogic
         }
     }
 
-    /**
-     * returns a sql qeury of a select from one product and as variable you  give a id which is the EAN
-     */
     public function readProduct($id)
     {
         try {
@@ -91,9 +67,7 @@ class productsLogic
         }
     }
 
-    /*
-     * sql qeury that prints all the products with a limit on it of 6 and a offset
-     * */
+    /**/
     public function readProducts()
     {
 
@@ -106,9 +80,6 @@ class productsLogic
         }
     }
 
-    /**
-     * returns the image path for the images   (view/assets/images/example/example.png)
-     */
     public function readProductsHome()
     {
 
@@ -119,10 +90,6 @@ class productsLogic
         }
     }
 
-
-    /**
-     * return a sql qeury with all the products with less columns
-     */
     public function readAdminProducts()
     {
 
@@ -135,19 +102,11 @@ class productsLogic
         }
     }
 
-
-    /**
-     * sql qeury that counts up total rows
-     */
     public function totalRows()
     {
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-
-    /**
-     * sql qeury that updates a product
-     */
     public function updateProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         return $this->DataHandler->updateData("UPDATE products SET `price` = '$price'
@@ -155,18 +114,11 @@ class productsLogic
             ,`connection` = '$connection',`brand` = '$brand' WHERE `EAN` = '$EAN'");
     }
 
-
-    /**
-     * a sql qeury that deletes a products on a given id variable which is the EAN
-     */
     public function deleteProduct($id)
     {
         return $this->DataHandler->DeleteData("DELETE FROM products WHERE `EAN` = '$id'");
     }
 
-    /**
-     * functnion returns how many pages
-     */
     function pagination($perPage = 6)
     {
         $count = $this->totalRows();
@@ -175,18 +127,11 @@ class productsLogic
         return $pages;
     }
 
-    /**
-     * returns the description for each column from the table products and returns them
-     */
     public function describeProduct()
     {
         return $this->DataHandler->ReadData("DESCRIBE multiversum.products");
     }
 
-
-    /**
-     * Creates a form based with the input types based on what describeProduct() returns and then returns the form
-     */
     public function createForm($dataProduct = FALSE)
     {
         $form = "
@@ -231,9 +176,6 @@ class productsLogic
         return $form;
     }
 
-    /**
-     * a funtions thats makes a table and returns the table
-     */
     public function printTable($array)
     {
         $table = "<table class='table'>";
@@ -255,11 +197,8 @@ class productsLogic
         $table .= "</table>";
         return $table;
     }
+    // $table.="<th>  </th> <th></th> <th></th> <th></th>";
 
-
-    /**
-     * a funtions thats makes a cart table and returns the table
-     */
    public function printCart($array)
    {
 
@@ -279,9 +218,6 @@ class productsLogic
        return $table;
    }
 
-    /**
-     * a funtions thats makes a table and returns the table
-     */
     public function printDetailTable($array)
     {
         $table = "<table class='table table-responsive'>";
@@ -299,9 +235,6 @@ class productsLogic
         return $table;
     }
 
-    /**
-     * a funtions thats makes the product page with the prodcuts specfication and images
-     */
     public function printDiv($array)
     {
 
@@ -336,10 +269,7 @@ class productsLogic
         return $table;
     }
 
-
-    /**
-     * Creates a carousel and returns it
-     */
+    
     function createCarousel($array)
     {
         $detail = "";
