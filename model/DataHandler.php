@@ -5,6 +5,10 @@ class DataHandler
 
     public $conn;
 
+    /**
+     * DataHandler constructor.
+     * makes a connection with the database
+     */
     function __construct($dbtype, $servername, $dbname, $username, $password)
     {
         try {
@@ -16,12 +20,17 @@ class DataHandler
         }
     }
 
+    /**
+     * excutes a create data sql and return the last inserted id
+     */
     function CreateData($sql)
     {
         $this->conn->exec($sql);
         return $this->conn->lastInsertId();
     }
-
+    /**
+     * excutes a read data sql
+     */
     function ReadData($sql)
     {
         $stmt = $this->conn->prepare($sql);
@@ -29,13 +38,17 @@ class DataHandler
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    /**
+     * excutes a update sql
+     */
     function UpdateData($sql)
     {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }
-
+    /**
+     * excutes a delete data sql
+     */
     function DeleteData($sql)
     {
         $stmt = $this->conn->prepare($sql);

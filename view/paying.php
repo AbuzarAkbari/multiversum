@@ -64,8 +64,10 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" id="send" name="send" type="submit">Betalen</button>
+          <button class="btn btn-primary btn-lg btn-block" id="send" name="send" type="submit">Betalen</button>
+            
           </form>
+
         </div>
       </div>
     </div>

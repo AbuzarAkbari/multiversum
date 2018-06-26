@@ -2,13 +2,18 @@
 require './model/productsLogic.php';
 require './model/ShoppingCartLogic.php';
 
-class ContactsController{
+class ContactsController
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->productsLogic = new productsLogic();
         $this->cartLogic = new ShoppingCartLogic();
     }
 
+    /**
+     * retrieves a operation in the url and binds a function to it
+     */
     public function handleRequest()
     {
         $op = isset($_GET["op"]) ? $_GET["op"] : "";
@@ -65,10 +70,13 @@ class ContactsController{
         }
     }
 
+    /**
+     * collects value from the form and puts it in InsertOrders function
+     */
     public function collectOrder()
     {
-        if (isset($_POST["send"])){
-            $order = $this->productsLogic->InsertOrder($_POST["firstname"],$_POST["lastname"],$_POST["straat"],$_POST["country"],$_POST["postcode"],$_POST["iban"],$_POST["huisnummer"]);
+        if (isset($_POST["send"])) {
+            $order = $this->productsLogic->InsertOrder($_POST["firstname"], $_POST["lastname"], $_POST["straat"], $_POST["country"], $_POST["postcode"], $_POST["iban"], $_POST["huisnummer"]);
 
             echo "<div class='alert mt-3 alert-success alert-dismissible fade show'>
             <button type='button' class='close' data-dismiss='alert'>&times;</button>
@@ -76,20 +84,23 @@ class ContactsController{
           </div>";
 
             $this->collectReadHome();
-                  
-        } else{
+
+        } else {
             echo "Error something went wrong";
         }
     }
 
+    /**
+     * collects values from a form and puts them in the createProdcut function
+     */
     public function collectCreateProduct()
     {
         if (isset($_POST['send'])) {
             $create = $this->productsLogic->createProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
                 , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN'], $_POST['image_path']);
 
-            $host  = $_SERVER['HTTP_HOST'];
-            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $host = $_SERVER['HTTP_HOST'];
+            $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
             $extra = 'index.php?op=admin';
             header("Location: http://$host$uri/$extra");
 
@@ -99,7 +110,11 @@ class ContactsController{
         }
     }
 
-    public function collectCart() {
+    /**
+     * prints a table with products in a cart
+     */
+    public function collectCart()
+    {
         $products = $this->cartLogic->readCart();
 
 
@@ -108,20 +123,32 @@ class ContactsController{
         include "view/shopping.php";
     }
 
-    public function deleteCart() {
+    /**
+     * deletes a products in a cart
+     */
+    public function deleteCart()
+    {
         $products = $this->cartLogic->deleteProductInCart($_REQUEST["id"]);
 //
-        $this->collectCart();   
+        $this->collectCart();
     }
 
-    public function collectAddToCart() {
+    /**
+     * adds prodcuts in teh cart
+     */
+    public function collectAddToCart()
+    {
         $this->cartLogic->addProductToCart($_REQUEST["id"], isset($_REQUEST["amount"]) ? $_REQUEST["amount"] : 1);
         // $table = $this->productsLogic->printTable($products);     
-        $this->collectCart();   
+        $this->collectCart();
     }
 
 
-    public function collectSearchProducts(){
+    /**
+     * search products prints in a div
+     */
+    public function collectSearchProducts()
+    {
         $search = $this->productsLogic->searchProducts($_REQUEST['w']);
         $result = $this->productsLogic->printDiv($search);
 
@@ -129,7 +156,11 @@ class ContactsController{
         include 'view/products.php';
     }
 
-    public function paying(){
+    /**
+     *  brings you to the checkout form
+     */
+    public function paying()
+    {
         $products = $this->cartLogic->readCart();
 
         $table = $this->productsLogic->printTable($products);
@@ -137,15 +168,20 @@ class ContactsController{
         include 'view/paying.php';
     }
 
+    /**
+     * an include
+     */
     public function shopping()
     {
         include 'view/shopping.php';
     }
-    public function collectContact(){
-        include "view/contact.php";
-    }
 
-    public function collectAdmin(){
+
+    /**
+     * prints a table with buttons for admin functions
+     */
+    public function collectAdmin()
+    {
         $array = $this->productsLogic->readAdminProducts();
         $a = $this->replace($array);
         $b = $this->btnInArray($a);
@@ -155,6 +191,10 @@ class ContactsController{
         include "view/admin.php";
     }
 
+
+    /**
+     * prodives the home page
+     */
     public function collectReadHome()
     {
 
@@ -165,6 +205,9 @@ class ContactsController{
         include 'view/home.php';
     }
 
+    /**
+     * collects the images for a products and prints them in a table
+     */
     public function collectImage()
     {
         $products = $this->productsLogic->createCarouselImage($_GET['id']);
@@ -176,16 +219,18 @@ class ContactsController{
 
     }
 
+    /**
+     * updates a products and returns you to the admin page
+     */
     public function collectUpdateProduct()
     {
         if (isset($_POST['send'])) {
             $this->productsLogic->updateProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
-            , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_GET['id']);
-            $host  = $_SERVER['HTTP_HOST'];
-            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+                , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_GET['id']);
+            $host = $_SERVER['HTTP_HOST'];
+            $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
             $extra = 'index.php?op=admin';
             header("Location: http://$host$uri/$extra");
-//          header('Location: http://localhost/git/multiversum/index.php?op=admin');            // include 'index.php?op=admin';
         } else {
             $dataProduct = $this->productsLogic->readProduct($_GET['id'])[0];
             $form = $this->productsLogic->createForm($dataProduct);
@@ -193,26 +238,35 @@ class ContactsController{
         }
     }
 
+    /**
+     * deletes a product and brings you back to the admin page
+     */
     public function collectDeleteProduct()
     {
         $delete = $this->productsLogic->deleteProduct($_GET['id']);
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         $extra = 'index.php?op=admin';
         header("Location: http://$host$uri/$extra");
     }
 
+    /**
+     * handles all the products and prints them in a div
+     */
     public function collectAllProducts()
     {
         $products = $this->productsLogic->readProducts();
 
-        $result = $this->productsLogic->printDiv($products,"product_name","image_path","price");
+        $result = $this->productsLogic->printDiv($products, "product_name", "image_path", "price");
 
         $pages = $this->productsLogic->pagination();
         include "view/products.php";
     }
 
 
+    /**
+     * makes action buttons for the admin page
+     */
     function btnInArray($array)
     {
         foreach ($array as $key => $value) {
@@ -225,6 +279,9 @@ class ContactsController{
         return $array;
     }
 
+    /**
+     * replaces a . into a , and adds a € infront of the priceS
+     */
     public function replace($array)
     {
         foreach ($array as $key => $value) {

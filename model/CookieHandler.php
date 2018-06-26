@@ -5,6 +5,11 @@ class CookieHandler
     public $name;
     public $data = [];
 
+
+    /**
+     * CookieHandler constructor.
+     * sets a cookie and gives it a max time until it expires
+     */
     public function __construct($name, $time)
     {
 
@@ -17,6 +22,9 @@ class CookieHandler
         }
     }
 
+    /**
+     * saves a cookie
+     */
     public function saveCookie()
     {
         setcookie($this->name, serialize($this->data));
