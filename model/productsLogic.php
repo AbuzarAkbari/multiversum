@@ -13,7 +13,7 @@ class productsLogic
     {
         try {
             return $this->DataHandler->CreateData("INSERT INTO products INNER JOIN photos (image_path,price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
-            VALUES ('$image_path ,$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
+            VALUES ('$image_path' ,'$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -32,6 +32,16 @@ class productsLogic
     {
         try {
             return $this->DataHandler->ReadData("SELECT EAN , image_path as 'Image', product_name as 'Product' ,price as 'Prijs' FROM products INNER JOIN photos ON `products`.EAN = `photos`.Products_EAN WHERE EAN = '$id'");
+        } catch (Exeption $e) {
+            throw $e;
+        }
+    }
+
+    public function InsertOrder($firstname,$lastname,$straat,$country,$postcode,$iban,$huisnummer)
+    {
+        try {
+            return $this->DataHandler->CreateData("INSERT INTO `orders`(`firstname`, `lastname`, `straat`, `country`, `postcode`, `iban`, `huisnummer`) 
+            VALUES ('$firstname','$lastname','$straat','$country','$postcode','$iban','$huisnummer')");
         } catch (Exeption $e) {
             throw $e;
         }

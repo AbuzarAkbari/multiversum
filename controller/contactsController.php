@@ -38,9 +38,6 @@ class ContactsController{
                 case "allProducts" :
                     $this->collectAllProducts();
                     break;
-                case "contact":
-                    $this->collectContact();
-                    break;
                 case "admin" :
                     $this->collectAdmin();
                     break;
@@ -53,12 +50,49 @@ class ContactsController{
                 case "cart" :
                     $this->collectCart();
                     break;
+                case "order" :
+                    $this->collectOrder();
+                    break;
                 default:
                     $this->collectReadHome();
                     break;
             }
         } catch (Exception $e) {
             throw $e;
+        }
+    }
+
+    public function collectOrder()
+    {
+        if (isset($_POST["send"])){
+            $order = $this->productsLogic->InsertOrder($_POST["firstname"],$_POST["lastname"],$_POST["straat"],$_POST["country"],$_POST["postcode"],$_POST["iban"],$_POST["huisnummer"]);
+
+            echo "<div class='alert mt-3 alert-success alert-dismissible fade show'>
+            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+            <strong>Success!</strong> betalling is gelukt
+          </div>";
+
+            $this->collectReadHome();
+                  
+        } else{
+            echo "Error something went wrong";
+        }
+    }
+
+    public function collectCreateProduct()
+    {
+        if (isset($_POST['send'])) {
+            $create = $this->productsLogic->createProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
+                , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN'], $_POST['image_path']);
+
+            $host  = $_SERVER['HTTP_HOST'];
+            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            $extra = 'index.php?op=admin';
+            header("Location: http://$host$uri/$extra");
+
+        } else {
+            $form = $this->productsLogic->createForm();
+            include 'view/form.php';
         }
     }
 
@@ -104,9 +138,7 @@ class ContactsController{
     {
         include 'view/shopping.php';
     }
-    public function collectContact(){
-        include "view/contact.php";
-    }
+
     public function collectAdmin(){
         $array = $this->productsLogic->readAdminProducts();
         $a = $this->replace($array);
@@ -136,23 +168,6 @@ class ContactsController{
 
         include 'view/details.php';
 
-    }
-
-    public function collectCreateProduct()
-    {
-        if (isset($_POST['send'])) {
-            $create = $this->productsLogic->createProduct($_POST['price'], $_POST['platform'], $_POST['resolution'], $_POST['refresh_rate'], $_POST['function'], $_POST['color'], $_POST['accessoires'], $_POST['product_name']
-                , $_POST['detail'], $_POST['connection'], $_POST['brand'], $_POST['EAN'], $_POST['image_path']);
-
-            $host  = $_SERVER['HTTP_HOST'];
-            $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-            $extra = 'index.php?op=admin';
-            header("Location: http://$host$uri/$extra");
-
-        } else {
-            $form = $this->productsLogic->createForm();
-            include 'view/form.php';
-        }
     }
 
     public function collectUpdateProduct()

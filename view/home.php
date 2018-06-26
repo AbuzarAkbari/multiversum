@@ -40,6 +40,7 @@
             <div class="container">
 
                 <div class="row">
+                
                    <?php echo $item  ?>
                 </div>
             </div>
