@@ -12,8 +12,8 @@ class productsLogic
     public function createProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
         try {
-            return $this->DataHandler->CreateData("INSERT INTO products INNER JOIN photos (image_path,price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
-            VALUES ('$image_path' ,'$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
+            return $this->DataHandler->CreateData("INSERT INTO products (price, platform, resolution, refresh_rate, function, color, accessoires, product_name, detail, connection, brand, EAN)
+            VALUES ('$price', '$platform', '$resolution', '$refresh_rate', '$function', '$color', '$accessoires', '$product_name', '$detail', '$connection', '$brand', '$EAN')");
         } catch (Exeption $e) {
             throw $e;
         }
@@ -107,9 +107,9 @@ class productsLogic
         return (int)$this->DataHandler->ReadData("SELECT count(*) FROM products")[0]["count(*)"];
     }
 
-    public function updateProduct($image_path, $price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
+    public function updateProduct($price, $platform, $resolution, $refresh_rate, $function, $color, $accessoires, $product_name, $detail, $connection, $brand, $EAN)
     {
-        return $this->DataHandler->updateData("UPDATE products INNER JOIN photos SET `image_path` = '$image_path', `price` = '$price'
+        return $this->DataHandler->updateData("UPDATE products SET `price` = '$price'
             ,`platform` = '$platform',`resolution` = '$resolution',`refresh_rate` = '$refresh_rate',`function` = '$function',`color` = '$color',`accessoires` = '$accessoires',`product_name` = '$product_name',`detail` = '$detail'
             ,`connection` = '$connection',`brand` = '$brand' WHERE `EAN` = '$EAN'");
     }
@@ -136,7 +136,7 @@ class productsLogic
     {
         $form = "
         <div class='my-5 container col-md-4'>
-        <form enctype='multipart/form-data' method='post' action='./model/upload.php'>";
+        <form enctype='multipart/form-data' method='post'>";
         $data = $this->describeProduct();
         foreach ($data as $key => $value) {
             if ($value['Extra'] != "auto_increment") {
@@ -311,15 +311,6 @@ class productsLogic
 
         return $detail;
     }
-
-//UPDATE ProductReviews
-//SET    ProductReviews.status = '0'
-//FROM   ProductReviews
-//INNER JOIN products
-//ON ProductReviews.pid = products.id
-//WHERE  ProductReviews.id = '17190'
-//AND products.shopkeeper = '89137'
-
 }
 
 

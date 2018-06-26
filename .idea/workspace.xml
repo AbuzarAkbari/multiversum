@@ -4,10 +4,8 @@
     <list default="true" id="54e3a678-cd3c-42cf-8a48-9391b04b2434" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/contactsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/contactsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/imageLogic.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/model/productsLogic.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/productsLogic.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/assets/images/Knipsel.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/assets/images/emblem_195x195.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/assets/images/logo.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,20 +22,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="contactsController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="contactsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/contactsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+            <state relative-caret-position="1185">
+              <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productsLogic.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/upload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/contact.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="productsLogic.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/model/productsLogic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="103" column="60" selection-start-line="103" selection-start-column="60" selection-end-line="103" selection-end-column="60" />
+            <state relative-caret-position="225">
+              <caret line="111" column="66" selection-start-line="111" selection-start-column="66" selection-end-line="111" selection-end-column="66" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#td#3;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,7 +89,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/model/imageLogic.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/view/partials/footer.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/model/DataHandler.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/model/ShoppingCartLogic.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/controller/contactsController.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
@@ -101,11 +120,12 @@
         <option value="$PROJECT_DIR$/view/partials/header.php" />
         <option value="$PROJECT_DIR$/model/ShoppingCartLogic.php" />
         <option value="$PROJECT_DIR$/view/shopping.php" />
-        <option value="$PROJECT_DIR$/model/imageLogic.php" />
         <option value="$PROJECT_DIR$/view/form.php" />
         <option value="$PROJECT_DIR$/model/upload.php" />
-        <option value="$PROJECT_DIR$/model/productsLogic.php" />
+        <option value="$PROJECT_DIR$/view/partials/footer.php" />
         <option value="$PROJECT_DIR$/controller/contactsController.php" />
+        <option value="$PROJECT_DIR$/model/imageLogic.php" />
+        <option value="$PROJECT_DIR$/model/productsLogic.php" />
       </list>
     </option>
   </component>
@@ -119,8 +139,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="487" />
-    <option name="width" value="1438" />
+    <option name="x" value="947" />
+    <option name="width" value="980" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -144,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,11 +187,16 @@
               <item name="multiversum" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="multiversum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="multiversum" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,18 +247,19 @@
       <workItem from="1529406977027" duration="357000" />
       <workItem from="1529570547621" duration="57000" />
       <workItem from="1529943865470" duration="9036000" />
-      <workItem from="1529959461965" duration="4530000" />
+      <workItem from="1529959461965" duration="6586000" />
+      <workItem from="1529995236880" duration="923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51307000" />
+    <option name="totallyTimeSpent" value="54286000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="817" y="9" width="782" height="831" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25032595" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17252605" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32905984" />
@@ -276,7 +303,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/view/footer.php" />
     <entry file="file://$PROJECT_DIR$/controller/productsController.php" />
     <entry file="file://$PROJECT_DIR$/view/header.php" />
     <entry file="file://$PROJECT_DIR$/view/home.php">
@@ -437,17 +463,17 @@
     <entry file="file://$PROJECT_DIR$/model/DataHandler.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/upload.php">
+    <entry file="file://$PROJECT_DIR$/view/form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="30">
+          <caret line="2" column="2" selection-start-line="2" selection-end-line="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/imageLogic.php">
+    <entry file="file://$PROJECT_DIR$/view/partials/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="420">
+          <caret line="28" column="17" lean-forward="true" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -458,24 +484,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="2" selection-start-line="2" selection-end-line="2" selection-end-column="2" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/model/imageLogic.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/productsLogic.php">
+    <entry file="file://$PROJECT_DIR$/model/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="103" column="60" selection-start-line="103" selection-start-column="60" selection-end-line="103" selection-end-column="60" />
+        <state relative-caret-position="134">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/contactsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+        <state relative-caret-position="1185">
+          <caret line="145" column="5" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/productsLogic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="111" column="66" selection-start-line="111" selection-start-column="66" selection-end-line="111" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#3;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

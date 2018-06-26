@@ -29,6 +29,9 @@ class ContactsController{
                 case "update";
                     $this->collectUpdateProduct();
                     break;
+                case "contact":
+                    $this->collectContact();
+                    break;
                 case "search";
                     $this->collectSearchProducts();
                     break;
@@ -137,6 +140,9 @@ class ContactsController{
     public function shopping()
     {
         include 'view/shopping.php';
+    }
+    public function collectContact(){
+        include "view/contact.php";
     }
 
     public function collectAdmin(){
